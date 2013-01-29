@@ -11,6 +11,7 @@
 #include <fstream>
 #include <iostream>
 #include <cstring>
+#include "expressions/Push.h"
 
 void Parser::parse(std::string inputFilePath) {
 	bool isValid = true;
@@ -86,8 +87,9 @@ Parser::Parser() {
 			"begin", "end", "return", "call"
 	};
 
+	JazExpression::Push push;
 	Expression expressions[] = {
-
+			push
 	};
 
 	// Generate a map that will map Strings to Expressions for parsing

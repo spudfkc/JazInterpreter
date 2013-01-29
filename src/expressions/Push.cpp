@@ -10,7 +10,8 @@
 
 namespace JazExpression {
 
-void Push::interpret(Context *context, int arg) {
+void Push::interpret(Context *context, Expression arg) {
+
 	context->push(arg);
 }
 
