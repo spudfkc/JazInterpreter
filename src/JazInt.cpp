@@ -6,20 +6,29 @@
 // Description : Hello World in C++, Ansi-style
 //============================================================================
 
+
+/**********************************************************
+ ****************** TODO List *****************************
+ **********************************************************
+ *
+ * Add JazInterpreter namespace to all classes
+ *
+ * update #includes to use namespaces over relative paths
+ *
+ *
+ **********************************************************
+ */
+
+
 #include <iostream>
 #include "Parser.h"
 
 using namespace std;
 
 int main() {
-	//cout << "!!!Hello World!!!" << endl; // prints !!!Hello World!!!
-
 	std::string fp = "/home/ncc/tmp/file.test";
 	Parser *p = new Parser();
 	p->parse(fp);
 
-
-
-	//cout << "!!!Goodbye world!!!" << endl;
 	return 0;
 }

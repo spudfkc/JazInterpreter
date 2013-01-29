@@ -12,11 +12,8 @@ void Expression::interpret(Context *context) {
 }
 
 Expression::Expression() {
-	// TODO Auto-generated constructor stub
-
 }
 
 Expression::~Expression() {
-	// TODO Auto-generated destructor stub
 }
 
