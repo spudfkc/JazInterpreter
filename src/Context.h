@@ -14,8 +14,14 @@ class Context {
 private:
 	std::stack<int,std::vector<int> > thestack;
 public:
+	void push(int);
+	int pop(void);
+	int top(void);
 	Context();
 	virtual ~Context();
 };
 
 #endif /* CONTEXT_H_ */
+
+
+

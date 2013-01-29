@@ -13,7 +13,7 @@ namespace JazExpression {
 
 class Push : public Expression {
 public:
-	void interpret(Context*);
+	void interpret(Context*, int);
 	Push();
 	virtual ~Push();
 };

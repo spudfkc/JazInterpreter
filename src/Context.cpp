@@ -7,6 +7,10 @@
 
 #include "Context.h"
 
+void Context::push(int arg) {
+	thestack.push(arg);
+}
+
 Context::Context() {
 	// TODO Auto-generated constructor stub
 
