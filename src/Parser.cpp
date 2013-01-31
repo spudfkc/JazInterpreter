@@ -72,41 +72,46 @@ void Parser::parse(std::string inputFilePath) {
 }
 
 Parser::Parser() {
-	std::string expressionStrings[31] = {
-			// STACK MANIPULATION
-			"push", "rvalue", "lvalue", "pop", ":=", "copy",
-			// CONTROL FLOW
-			"label", "goto", "gofalse", "gotrue", "halt",
-			// ARITHMETIC OPERATORS
-			"+", "-", "*", "/", "div",
-			// LOGICAL OPERATORS
-			"&", "!", "|",
-			// RELATIONAL OPERATORS
-			"<>", "<=", ">=", "<", ">", "=",
-			// OUTPUT
-			"print", "show",
-			// SUBPROGRAM CONTROL
-			"begin", "end", "return", "call"
-	};
-
 	typedef Expression (JazExpression::ExpressionFactory::*exp_method_t)(std::string);
 	typedef std::map<std::string, exp_method_t> exp_func_map_t;
 	exp_func_map_t createMap;
 
 	createMap["push"] = &JazExpression::ExpressionFactory::createPush;
+	createMap["rvalue"] = &JazExpression::ExpressionFactory::createRvalue;
+	createMap["lvalue"] = &JazExpression::ExpressionFactory::createLvalue;
+	createMap["pop"] = &JazExpression::ExpressionFactory::createPop;
+	createMap[":="] = &JazExpression::ExpressionFactory::createAssign;
 
-	Expression expressions[] = {
+	createMap["label"] = &JazExpression::ExpressionFactory::createLabel;
+	createMap["goto"] = &JazExpression::ExpressionFactory::createGoto;
+	createMap["gofalse"] = &JazExpression::ExpressionFactory::createGofalse;
+	createMap["gotrue"] = &JazExpression::ExpressionFactory::createGotrue;
+	createMap["halt"] = &JazExpression::ExpressionFactory::createHalt;
 
-	};
+	createMap["+"] = &JazExpression::ExpressionFactory::createAddition;
+	createMap["-"] = &JazExpression::ExpressionFactory::createSubtraction;
+	createMap["*"] = &JazExpression::ExpressionFactory::createMultiplication;
+	createMap["/"] = &JazExpression::ExpressionFactory::createDivision;
+	createMap["div"] = &JazExpression::ExpressionFactory::createModulo;
 
-	// Generate a map that will map Strings to Expressions for parsing
-	unsigned int i = 0;
-	for (i = 0; i < 31; i++) {
-//		std::string expressionString = expressionStrings[i];
-//		Expression expression = expressions[i];
-//		expressionMap.insert(std::pair<std::string, Expression>(expressionString, expression) );
-	}
+	createMap["&"] = &JazExpression::ExpressionFactory::createAnd;
+	createMap["!"] = &JazExpression::ExpressionFactory::createNot;
+	createMap["|"] = &JazExpression::ExpressionFactory::createOr;
 
+	createMap["<>"] = &JazExpression::ExpressionFactory::createNotEqual;
+	createMap["<="] = &JazExpression::ExpressionFactory::createLessEqual;
+	createMap[">="] = &JazExpression::ExpressionFactory::createGreaterEqual;
+	createMap["<"] = &JazExpression::ExpressionFactory::createLess;
+	createMap[">"] = &JazExpression::ExpressionFactory::createGreater;
+	createMap["="] = &JazExpression::ExpressionFactory::createEqual;
+
+	createMap["print"] = &JazExpression::ExpressionFactory::createPrint;
+	createMap["show"] = &JazExpression::ExpressionFactory::createShow;
+
+	createMap["begin"] = &JazExpression::ExpressionFactory::createBegin;
+	createMap["end"] = &JazExpression::ExpressionFactory::createEnd;
+	createMap["return"] = &JazExpression::ExpressionFactory::createReturn;
+	createMap["call"] = &JazExpression::ExpressionFactory::createCall;
 }
 
 Parser::~Parser() {
