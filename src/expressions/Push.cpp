@@ -10,14 +10,17 @@
 
 namespace JazExpression {
 
-void Push::interpret(Context *context, Expression arg) {
-
-	context->push(arg);
+void Push::interpret(Context *context) {
+	context->push(Push::stringToInt(arguments));
 }
 
-Push::Push() {
-	// TODO Auto-generated constructor stub
+int Push::stringToInt(std::string str) {
+	int result = 0;
+	// TODO
+	return result;
+}
 
+Push::Push(std::string args) : Expression(args) {
 }
 
 Push::~Push() {

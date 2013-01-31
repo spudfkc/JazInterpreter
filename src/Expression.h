@@ -8,11 +8,16 @@
 #ifndef EXPRESSION_H_
 #define EXPRESSION_H_
 #include "Context.h"
+#include <string>
 
 class Expression {
+private:
 public:
+	Expression test(std::string);
+	std::string arguments;
 	void interpret(Context*);
-	Expression();
+	void setArguments(Expression);
+	Expression(std::string);
 	virtual ~Expression();
 };
 

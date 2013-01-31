@@ -11,6 +11,11 @@ void Context::push(int arg) {
 	thestack.push(arg);
 }
 
+int Context::pop(void) {
+	int a = thestack.top();
+	return a;
+}
+
 Context::Context() {
 	// TODO Auto-generated constructor stub
 

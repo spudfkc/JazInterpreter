@@ -7,14 +7,18 @@
 
 #ifndef PUSH_H_
 #define PUSH_H_
+#include <string>
 #include "../Expression.h"
 
 namespace JazExpression {
 
 class Push : public Expression {
+private:
+	int stringToInt(std::string);
 public:
-	void interpret(Context*, int);
-	Push();
+	Expression create(std::string);
+	void interpret(Context*);
+	Push(std::string);
 	virtual ~Push();
 };
 

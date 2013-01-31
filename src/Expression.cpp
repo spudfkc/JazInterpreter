@@ -11,7 +11,13 @@ void Expression::interpret(Context *context) {
 
 }
 
-Expression::Expression() {
+Expression Expression::test(std::string args) {
+	Expression e("");
+	return e;
+}
+
+Expression::Expression(std::string args) {
+	arguments = args;
 }
 
 Expression::~Expression() {

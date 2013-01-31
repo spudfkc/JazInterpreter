@@ -12,6 +12,7 @@
 #include <iostream>
 #include <cstring>
 #include "expressions/Push.h"
+#include "ExpressionFactory.h"
 
 void Parser::parse(std::string inputFilePath) {
 	bool isValid = true;
@@ -28,14 +29,15 @@ void Parser::parse(std::string inputFilePath) {
 		std::exit(1);
 	}
 
+	std::cout << "START PARSE" << std::endl;
+
 	int i = 1;
 	for (std::string line; std::getline (input, line); ) {
 		std::map<std::string, Expression>::const_iterator expIterator;
 		// TODO - check for blank/empty line
 
 		// find the first space
-		Expression expression;	// i think this causes a memory leak albeit a small one
-		Expression *expressionArgs;
+		Expression expression("");
 		std::string::size_type whitespace = line.find(' ', 0);
 
 		if (whitespace != std::string::npos) {
@@ -46,17 +48,17 @@ void Parser::parse(std::string inputFilePath) {
 
 			std::cout << argString << std::endl << expString << std::endl;
 
-			expIterator = expressionMap.find(argString);
+			expIterator = expressionMap.find(expString);
 			if (expIterator == expressionMap.end()) {
 				std::cout << "Bad expression found on line: " << i << std::endl;
 				std::cout << "\t" << argString << std::endl;
 				isValid = false;
 			}
 			else {
-				std::cout << "FOUND: " << (*expIterator).first;
+				std::cout << "FOUND: " << (*expIterator).first << std::endl;
 			}
 		}
-		std::cout << "Line " << i++ << ": " << line << std::endl;
+		std::cout << "Line " << i++ << ": " << line << std::endl << std::endl;
 	}
 
 	if (input.is_open()) {
@@ -64,7 +66,7 @@ void Parser::parse(std::string inputFilePath) {
 	}
 
 	if (!isValid) {
-		std::cout << "--- Bad Jaz ---" << std::endl;
+		std::cout << std::endl << "______ Bad Jaz ______" << std::endl;
 		exit(1);
 	}
 }
@@ -87,17 +89,22 @@ Parser::Parser() {
 			"begin", "end", "return", "call"
 	};
 
-	JazExpression::Push push;
+	typedef Expression (JazExpression::ExpressionFactory::*exp_method_t)(std::string);
+	typedef std::map<std::string, exp_method_t> exp_func_map_t;
+	exp_func_map_t createMap;
+
+	createMap["push"] = &JazExpression::ExpressionFactory::createPush;
+
 	Expression expressions[] = {
-			push
+
 	};
 
 	// Generate a map that will map Strings to Expressions for parsing
 	unsigned int i = 0;
 	for (i = 0; i < 31; i++) {
-		std::string expressionString = expressionStrings[i];
-		Expression expression = expressions[i];
-		expressionMap.insert(std::pair<std::string, Expression>(expressionString, expression) );
+//		std::string expressionString = expressionStrings[i];
+//		Expression expression = expressions[i];
+//		expressionMap.insert(std::pair<std::string, Expression>(expressionString, expression) );
 	}
 
 }
