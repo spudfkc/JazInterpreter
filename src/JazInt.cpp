@@ -26,7 +26,7 @@
 using namespace std;
 
 int main() {
-	std::string fp = "/home/ncc/tmp/file.test";
+	std::string fp = "/home/ncc/Downloads/demo.jaz";
 	Parser *p = new Parser();
 	p->parse(fp);
 

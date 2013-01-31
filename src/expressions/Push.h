@@ -16,7 +16,7 @@ class Push : public Expression {
 private:
 	int stringToInt(std::string);
 public:
-	Expression create(std::string);
+//	Expression create(std::string);
 	void interpret(Context*);
 	Push(std::string);
 	virtual ~Push();

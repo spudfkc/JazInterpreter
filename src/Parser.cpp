@@ -14,7 +14,15 @@
 #include "expressions/Push.h"
 #include "ExpressionFactory.h"
 
-void Parser::parse(std::string inputFilePath) {
+void Parser::trim(std::string& str) {
+	std::string::size_type start = str.find_first_not_of(' ');
+	std::string::size_type end = str.find_last_not_of(' ');
+	str = str.substr(start == std::string::npos ? 0 : start,
+		end == std::string::npos ? str.length() - 1 : end - start + 1);
+}
+
+std::vector<Expression> Parser::parse(std::string inputFilePath) {
+	std::vector<Expression> result;
 	bool isValid = true;
 	char *inputFileCharArray = new char[inputFilePath.size() + 1];
 	inputFileCharArray[inputFilePath.size()] = 0;
@@ -33,32 +41,44 @@ void Parser::parse(std::string inputFilePath) {
 
 	int i = 1;
 	for (std::string line; std::getline (input, line); ) {
-		std::map<std::string, Expression>::const_iterator expIterator;
-		// TODO - check for blank/empty line
+		trim(line);
+		if (line.size() != 0) {
+			std::map<std::string, Expression>::const_iterator expIterator;
+			Expression expression("");
 
-		// find the first space
-		Expression expression("");
-		std::string::size_type whitespace = line.find(' ', 0);
+			bool isNoArgExpression = false;
+			std::string::size_type whitespace = line.find(' ', 0);
+			if (whitespace == std::string::npos) {
+				isNoArgExpression = true;
+			}
 
-		if (whitespace != std::string::npos) {
-			// found!
+			std::string expString;
+			std::string argString;
 
-			std::string argString = line.substr(whitespace, line.size()-1);
-			std::string expString = line.substr(0, whitespace);
+			if (!isNoArgExpression) {
+				expString = line.substr(0, whitespace);
+				argString = line.substr(whitespace, line.size()-1);
+			}
+			else {
+				expString = line;
+				argString = "";
+			}
 
-			std::cout << argString << std::endl << expString << std::endl;
+			std::cout << "Expression: " << expString.size() << "   " << expString << std::endl;
+			std::cout << "Argument: " << argString << std::endl;
 
-			expIterator = expressionMap.find(expString);
-			if (expIterator == expressionMap.end()) {
+			std::map<std::string, exp_method_t>::const_iterator iter = createMap.find(expString);
+			if (iter == createMap.end()) {
 				std::cout << "Bad expression found on line: " << i << std::endl;
 				std::cout << "\t" << argString << std::endl;
 				isValid = false;
 			}
 			else {
-				std::cout << "FOUND: " << (*expIterator).first << std::endl;
+				std::cout << "FOUND: " << iter->first << std::endl;
+				iter->second;
 			}
+			std::cout << "Line " << i++ << ": " << line << std::endl << std::endl;
 		}
-		std::cout << "Line " << i++ << ": " << line << std::endl << std::endl;
 	}
 
 	if (input.is_open()) {
@@ -69,12 +89,12 @@ void Parser::parse(std::string inputFilePath) {
 		std::cout << std::endl << "______ Bad Jaz ______" << std::endl;
 		exit(1);
 	}
+
+	return result;
 }
 
 Parser::Parser() {
-	typedef Expression (JazExpression::ExpressionFactory::*exp_method_t)(std::string);
-	typedef std::map<std::string, exp_method_t> exp_func_map_t;
-	exp_func_map_t createMap;
+
 
 	createMap["push"] = &JazExpression::ExpressionFactory::createPush;
 	createMap["rvalue"] = &JazExpression::ExpressionFactory::createRvalue;
