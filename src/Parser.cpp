@@ -75,9 +75,13 @@ std::vector<Expression> Parser::parse(std::string inputFilePath) {
 			}
 			else {
 				std::cout << "FOUND: " << iter->first << std::endl;
-				iter->second;
+				exp_method_t func = iter->second;
+				// need to dereference the function pointer and it needs an instance to run on
+				expression = (factory.*func)(argString);
+				result.push_back(expression);
 			}
 			std::cout << "Line " << i++ << ": " << line << std::endl << std::endl;
+
 		}
 	}
 
