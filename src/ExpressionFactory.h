@@ -8,12 +8,13 @@
 #ifndef EXPRESSIONFACTORY_H_
 #define EXPRESSIONFACTORY_H_
 #include "Expression.h"
+#include "expressions/Push.h"
 
 namespace JazExpression {
 
 class ExpressionFactory {
 public:
-	Expression createPush(std::string);
+	Push createPush(std::string);
 	Expression createRvalue(std::string);
 	Expression createLvalue(std::string);
 	Expression createPop(std::string);

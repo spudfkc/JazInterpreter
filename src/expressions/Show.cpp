@@ -6,8 +6,13 @@
  */
 
 #include "Show.h"
+#include <iostream>
 
 namespace JazExpression {
+
+void Show::interpret(Context *context) {
+	std::cout << this->arguments << std::endl;
+}
 
 Show::Show(std::string args) : Expression(args) {
 	// TODO Auto-generated constructor stub

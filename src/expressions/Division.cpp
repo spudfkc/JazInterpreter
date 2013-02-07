@@ -9,6 +9,10 @@
 
 namespace JazExpression {
 
+void Division::interpret(Context *context) {
+
+}
+
 Division::Division(std::string args) : Expression(args) {
 	// TODO Auto-generated constructor stub
 

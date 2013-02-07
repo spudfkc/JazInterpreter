@@ -9,6 +9,10 @@
 
 namespace JazExpression {
 
+void Return::interpret(Context *context) {
+
+}
+
 Return::Return(std::string args) : Expression(args) {
 	// TODO Auto-generated constructor stub
 

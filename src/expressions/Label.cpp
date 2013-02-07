@@ -9,6 +9,10 @@
 
 namespace JazExpression {
 
+void Label::interpret(Context *context) {
+
+}
+
 Label::Label(std::string args) : Expression(args) {
 	// TODO Auto-generated constructor stub
 

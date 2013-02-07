@@ -9,6 +9,10 @@
 
 namespace JazExpression {
 
+void Less::interpret(Context *context) {
+
+}
+
 Less::Less(std::string args) : Expression(args) {
 	// TODO Auto-generated constructor stub
 

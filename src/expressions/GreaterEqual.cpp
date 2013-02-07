@@ -9,6 +9,10 @@
 
 namespace JazExpression {
 
+void GreaterEqual::interpret(Context *context) {
+
+}
+
 GreaterEqual::GreaterEqual(std::string args) : Expression(args) {
 	// TODO Auto-generated constructor stub
 

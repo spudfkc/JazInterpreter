@@ -9,6 +9,10 @@
 
 namespace JazExpression {
 
+void Gotrue::interpret(Context *context) {
+
+}
+
 Gotrue::Gotrue(std::string args) : Expression(args) {
 	// TODO Auto-generated constructor stub
 

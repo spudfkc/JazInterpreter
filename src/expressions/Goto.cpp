@@ -6,8 +6,13 @@
  */
 
 #include "Goto.h"
+#include <iostream>
 
 namespace JazExpression {
+
+void interpret(Context *context) {
+	std::cout << "GOTO TESTING TESTING" << std::endl;
+}
 
 Goto::Goto(std::string args) : Expression(args) {
 	// TODO Auto-generated constructor stub

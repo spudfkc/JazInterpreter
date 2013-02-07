@@ -9,6 +9,10 @@
 
 namespace JazExpression {
 
+void Not::interpret(Context *context) {
+
+}
+
 Not::Not(std::string args) : Expression(args) {
 	// TODO Auto-generated constructor stub
 

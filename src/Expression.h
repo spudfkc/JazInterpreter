@@ -13,9 +13,9 @@
 class Expression {
 private:
 public:
-	Expression test(std::string);
+	std::string getArguments(void);
 	std::string arguments;
-	void interpret(Context*);
+	virtual void interpret(Context*);
 	void setArguments(Expression);
 	Expression(std::string);
 	virtual ~Expression();

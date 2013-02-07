@@ -9,6 +9,10 @@
 
 namespace JazExpression {
 
+void NotEqual::interpret(Context *context) {
+
+}
+
 NotEqual::NotEqual(std::string args) : Expression(args) {
 	// TODO Auto-generated constructor stub
 

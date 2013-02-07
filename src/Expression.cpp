@@ -6,14 +6,14 @@
  */
 
 #include "Expression.h"
+#include <iostream>
 
 void Expression::interpret(Context *context) {
-
+	std::cout << "IN PARENT CLASS" << std::endl;
 }
 
-Expression Expression::test(std::string args) {
-	Expression e("");
-	return e;
+std::string Expression::getArguments(void) {
+	return arguments;
 }
 
 Expression::Expression(std::string args) {
