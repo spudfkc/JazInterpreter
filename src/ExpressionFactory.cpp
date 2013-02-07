@@ -39,7 +39,7 @@
 
 namespace JazExpression {
 
-Push ExpressionFactory::createPush(std::string args) {
+Expression ExpressionFactory::createPush(std::string args) {
 	Push push(args);
 	return push;
 }
