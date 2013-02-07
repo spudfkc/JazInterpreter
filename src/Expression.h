@@ -13,7 +13,6 @@
 class Expression {
 private:
 public:
-	std::string getArguments(void);
 	std::string arguments;
 	virtual void interpret(Context*);
 	void setArguments(Expression);

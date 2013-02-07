@@ -12,8 +12,7 @@ void Context::push(int arg) {
 }
 
 int Context::pop(void) {
-	int a = thestack.top();
-	return a;
+	return thestack.top();
 }
 
 Context::Context() {
