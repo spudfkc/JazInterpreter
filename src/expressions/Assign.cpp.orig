@@ -1,0 +1,37 @@
+/*
+ * Assign.cpp
+ *
+ *  Created on: Jan 31, 2013
+ *      Author: ncc
+ */
+
+#include "Assign.h"
+
+namespace JazExpression {
+
+<<<<<<< HEAD
+void Assign::interpret(Context *context) {
+	int value = stringToInt(context->pop());
+	std::string variable = context->pop();
+	context->assignVariable(variable, value);
+=======
+void Assign::interpret(Context *context) 
+{
+	std::string value    = context->pop();
+	std::string variable = context->pop();
+
+	variable += value;
+	context->push(variable);
+>>>>>>> 7cf54caed5df5a45bad2450e27b7107c69a46f53
+}
+
+Assign::Assign(std::string args) : Expression(args) {
+	// TODO Auto-generated constructor stub
+
+}
+
+Assign::~Assign() {
+	// TODO Auto-generated destructor stub
+}
+
+} /* namespace JazExpression */

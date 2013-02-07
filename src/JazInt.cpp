@@ -29,7 +29,7 @@ using namespace std;
 
 int main() {
 
-	string fp = "/home/ncc/Downloads/demo.jaz";
+	string fp = "C:\\Users\\Andrew\\Desktop\\spring 2013\\software engineering\\assignment 1\\demo.jaz";
 
 	vector<Expression*> expressionList;             // Holds expressions
 	Context *context = new Context(); // Holds stack and labels (possibly symbol table?)
