@@ -16,15 +16,15 @@
 class Parser {
 private:
 	void trim(std::string&);
-	typedef Expression (JazExpression::ExpressionFactory::*exp_method_t)(std::string);
+	typedef Expression * (JazExpression::ExpressionFactory::*exp_method_t)(std::string);
 	typedef std::map<std::string, exp_method_t> exp_func_map_t;
 	exp_func_map_t createMap;
 	JazExpression::ExpressionFactory factory;
-	std::map<std::string, int> labelMap;                // maps label name to index
+	std::map<std::string, int> labelMap;                 // maps label name to index
 	std::vector<Expression> expressionList;             // list of parsed expressions
 public:
 	void getExpressions(std::vector<Expression>& retValue);
-	std::vector<Expression> parse(std::string);
+	std::vector<Expression*> parse(std::string);
 	Parser();
 	virtual ~Parser();
 };

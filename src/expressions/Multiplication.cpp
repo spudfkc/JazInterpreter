@@ -9,6 +9,10 @@
 
 namespace JazExpression {
 
+void Multiplication::interpret(Context *context) {
+
+}
+
 Multiplication::Multiplication(std::string args) : Expression(args) {
 	// TODO Auto-generated constructor stub
 

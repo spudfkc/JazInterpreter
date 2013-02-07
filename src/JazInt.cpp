@@ -31,7 +31,7 @@ int main() {
 
 	string fp = "/home/ncc/Downloads/demo.jaz";
 
-	vector<Expression> expressionList;         // Holds expressions
+	vector<Expression*> expressionList;         // Holds expressions
 	Context context;                           // Holds stack and labels (possibly symbol table?)
 	Parser *p = new Parser();                  // Parses files
 
@@ -42,7 +42,7 @@ int main() {
 	cout << expressionList.size() << endl;
 	int i;
 	for (i = 0; i < expressionList.size(); i++) {
-		Expression *expression = &(expressionList.at(i));
+		Expression *expression = expressionList.at(i);
 		expression->interpret(&context);
 	}
 	cout << "======= End interpret" << endl;

@@ -39,153 +39,153 @@
 
 namespace JazExpression {
 
-Expression ExpressionFactory::createPush(std::string args) {
-	Push push(args);
+Expression* ExpressionFactory::createPush(std::string args) {
+	Push *push = new Push(args);
 	return push;
 }
 
-Expression ExpressionFactory::createRvalue(std::string args) {
-	Rvalue rvalue(args);
+Expression* ExpressionFactory::createRvalue(std::string args) {
+	Rvalue *rvalue = new Rvalue(args);
 	return rvalue;
 }
 
-Expression ExpressionFactory::createLvalue(std::string args) {
-	Lvalue lvalue(args);
+Expression* ExpressionFactory::createLvalue(std::string args) {
+	Lvalue *lvalue = new Lvalue(args);
 	return lvalue;
 }
 
-Expression ExpressionFactory::createPop(std::string args) {
-	Pop pop(args);
+Expression* ExpressionFactory::createPop(std::string args) {
+	Pop *pop = new Pop(args);
 	return pop;
 }
 
-Expression ExpressionFactory::createAssign(std::string args) {
-	Assign assign(args);
+Expression* ExpressionFactory::createAssign(std::string args) {
+	Assign *assign = new Assign(args);
 	return assign;
 }
 
-Expression ExpressionFactory::createLabel(std::string args) {
-	Label label(args);
+Expression* ExpressionFactory::createLabel(std::string args) {
+	Label *label = new Label(args);
 	return label;
 }
 
-Expression ExpressionFactory::createGoto(std::string args) {
-	Goto g(args);
+Expression* ExpressionFactory::createGoto(std::string args) {
+	Goto *g = new Goto(args);
 	return g;
 }
 
-Expression ExpressionFactory::createGofalse(std::string args) {
-	Gofalse gf(args);
+Expression* ExpressionFactory::createGofalse(std::string args) {
+	Gofalse *gf = new Gofalse(args);
 	return gf;
 }
 
-Expression ExpressionFactory::createGotrue(std::string args) {
-	Gotrue gt(args);
+Expression* ExpressionFactory::createGotrue(std::string args) {
+	Gotrue *gt = new Gotrue(args);
 	return gt;
 }
 
-Expression ExpressionFactory::createHalt(std::string args) {
-	Halt h(args);
+Expression* ExpressionFactory::createHalt(std::string args) {
+	Halt *h = new Halt(args);
 	return h;
 }
 
-Expression ExpressionFactory::createAddition(std::string args) {
-	Addition add(args);
+Expression* ExpressionFactory::createAddition(std::string args) {
+	Addition *add = new Addition(args);
 	return add;
 }
 
-Expression ExpressionFactory::createSubtraction(std::string args) {
-	Subtraction subtract(args);
+Expression* ExpressionFactory::createSubtraction(std::string args) {
+	Subtraction *subtract = new Subtraction(args);
 	return subtract;
 }
 
-Expression ExpressionFactory::createMultiplication(std::string args) {
-	Multiplication mul(args);
+Expression* ExpressionFactory::createMultiplication(std::string args) {
+	Multiplication *mul = new Multiplication(args);
 	return mul;
 }
 
-Expression ExpressionFactory::createDivision(std::string args) {
-	Division d(args);
+Expression* ExpressionFactory::createDivision(std::string args) {
+	Division *d = new Division(args);
 	return d;
 }
-Expression ExpressionFactory::createModulo(std::string args) {
-	Modulo m(args);
+Expression* ExpressionFactory::createModulo(std::string args) {
+	Modulo *m = new Modulo(args);
 	return m;
 }
 
-Expression ExpressionFactory::createAnd(std::string args) {
-	And a(args);
+Expression* ExpressionFactory::createAnd(std::string args) {
+	And *a = new And(args);
 	return a;
 }
 
-Expression ExpressionFactory::createNot(std::string args) {
-	Not n(args);
+Expression* ExpressionFactory::createNot(std::string args) {
+	Not *n = new Not(args);
 	return n;
 }
 
-Expression ExpressionFactory::createOr(std::string args) {
-	Or o(args);
+Expression* ExpressionFactory::createOr(std::string args) {
+	Or *o = new Or(args);
 	return o;
 }
 
-Expression ExpressionFactory::createNotEqual(std::string args) {
-	NotEqual ne(args);
+Expression* ExpressionFactory::createNotEqual(std::string args) {
+	NotEqual *ne = new NotEqual(args);
 	return ne;
 }
 
-Expression ExpressionFactory::createLessEqual(std::string args) {
-	LessEqual le(args);
+Expression* ExpressionFactory::createLessEqual(std::string args) {
+	LessEqual *le = new LessEqual(args);
 	return le;
 }
 
-Expression ExpressionFactory::createGreaterEqual(std::string args) {
-	GreaterEqual ge(args);
+Expression* ExpressionFactory::createGreaterEqual(std::string args) {
+	GreaterEqual *ge = new GreaterEqual(args);
 	return ge;
 }
 
-Expression ExpressionFactory::createLess(std::string args) {
-	Less l(args);
+Expression* ExpressionFactory::createLess(std::string args) {
+	Less *l = new Less(args);
 	return l;
 }
 
-Expression ExpressionFactory::createGreater(std::string args) {
-	Greater g(args);
+Expression* ExpressionFactory::createGreater(std::string args) {
+	Greater *g = new Greater(args);
 	return g;
 }
 
-Expression ExpressionFactory::createEqual(std::string args) {
-	Equal e(args);
+Expression* ExpressionFactory::createEqual(std::string args) {
+	Equal *e = new Equal(args);
 	return e;
 }
 
 
-Expression ExpressionFactory::createPrint(std::string args) {
-	Print p(args);
+Expression* ExpressionFactory::createPrint(std::string args) {
+	Print *p = new Print(args);
 	return p;
 }
 
-Expression ExpressionFactory::createShow(std::string args) {
-	Show s(args);
+Expression* ExpressionFactory::createShow(std::string args) {
+	Show *s = new Show(args);
 	return s;
 }
 
-Expression ExpressionFactory::createBegin(std::string args) {
-	Begin b(args);
+Expression* ExpressionFactory::createBegin(std::string args) {
+	Begin *b = new Begin(args);
 	return b;
 }
 
-Expression ExpressionFactory::createEnd(std::string args) {
-	End e(args);
+Expression* ExpressionFactory::createEnd(std::string args) {
+	End *e = new End(args);
 	return e;
 }
 
-Expression ExpressionFactory::createReturn(std::string args) {
-	Return r(args);
+Expression* ExpressionFactory::createReturn(std::string args) {
+	Return *r = new Return(args);
 	return r;
 }
 
-Expression ExpressionFactory::createCall(std::string args) {
-	Call c(args);
+Expression* ExpressionFactory::createCall(std::string args) {
+	Call *c = new Call(args);
 	return c;
 }
 

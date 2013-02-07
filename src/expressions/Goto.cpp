@@ -10,8 +10,8 @@
 
 namespace JazExpression {
 
-void interpret(Context *context) {
-	std::cout << "GOTO TESTING TESTING" << std::endl;
+void Goto::interpret(Context *context) {
+	std::cout << "GOTO TESTING" << std::endl;
 }
 
 Goto::Goto(std::string args) : Expression(args) {

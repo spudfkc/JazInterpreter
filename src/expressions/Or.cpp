@@ -9,6 +9,10 @@
 
 namespace JazExpression {
 
+void Or::interpret(Context *context) {
+
+}
+
 Or::Or(std::string args) : Expression(args) {
 	// TODO Auto-generated constructor stub
 

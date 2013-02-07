@@ -9,6 +9,10 @@
 
 namespace JazExpression {
 
+void Subtraction::interpret(Context *context) {
+
+}
+
 Subtraction::Subtraction(std::string args) : Expression(args) {
 	// TODO Auto-generated constructor stub
 

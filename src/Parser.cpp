@@ -21,8 +21,8 @@ void Parser::trim(std::string& str) {
 		end == std::string::npos ? str.length() - 1 : end - start + 1);
 }
 
-std::vector<Expression> Parser::parse(std::string inputFilePath) {
-	std::vector<Expression> result;
+std::vector<Expression*> Parser::parse(std::string inputFilePath) {
+	std::vector<Expression*> result;
 	bool isValid = true;
 	char *inputFileCharArray = new char[inputFilePath.size() + 1];
 	inputFileCharArray[inputFilePath.size()] = 0;
@@ -44,7 +44,7 @@ std::vector<Expression> Parser::parse(std::string inputFilePath) {
 		trim(line);
 		if (line.size() != 0) {
 			std::map<std::string, Expression>::const_iterator expIterator;
-			Expression expression("");
+			Expression *expression = new Expression("");
 
 			bool isNoArgExpression = false;
 			std::string::size_type whitespace = line.find(' ', 0);
