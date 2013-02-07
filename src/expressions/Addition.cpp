@@ -13,13 +13,13 @@ void Addition::interpret(Context *context)
 {
 // get the top two values from context...
 
-	int value1 = context.pop();
-	int value2 = context.pop();
+	int value1 = context->pop();
+	int value2 = context->pop();
 
 // add them together and return the push 
 
 	int value = value2 + value1;
-	context.push(value);
+	context->push(value);
 }
 
 Addition::Addition(std::string args) : Expression(args) {
