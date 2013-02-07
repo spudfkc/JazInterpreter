@@ -10,7 +10,9 @@
 namespace JazExpression {
 
 void Assign::interpret(Context *context) {
-
+	int value = stringToInt(context->pop());
+	std::string variable = context->pop();
+	context->assignVariable(variable, value);
 }
 
 Assign::Assign(std::string args) : Expression(args) {

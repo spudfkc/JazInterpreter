@@ -37,8 +37,7 @@ std::vector<Expression*> Parser::parse(std::string inputFilePath) {
 		std::exit(1);
 	}
 
-	std::cout << "START PARSE" << std::endl;
-
+	// Starting the parsing
 	int i = 1;
 	for (std::string line; std::getline (input, line); ) {
 		trim(line);
@@ -64,8 +63,8 @@ std::vector<Expression*> Parser::parse(std::string inputFilePath) {
 				argString = "";
 			}
 
-			std::cout << "Expression: " << expString.size() << "   " << expString << std::endl;
-			std::cout << "Argument: " << argString << std::endl;
+			//std::cout << "Expression: " << expString.size() << "   " << expString << std::endl;
+			//std::cout << "Argument: " << argString << std::endl;
 
 			std::map<std::string, exp_method_t>::const_iterator iter = createMap.find(expString);
 			if (iter == createMap.end()) {
@@ -80,7 +79,7 @@ std::vector<Expression*> Parser::parse(std::string inputFilePath) {
 				expression = (factory.*func)(argString);
 				result.push_back(expression);
 			}
-			std::cout << "Line " << i++ << ": " << line << std::endl << std::endl;
+			//std::cout << "Line " << i++ << ": " << line << std::endl << std::endl;
 		}
 	}
 
@@ -92,6 +91,7 @@ std::vector<Expression*> Parser::parse(std::string inputFilePath) {
 		std::cout << std::endl << "======== Bad Jaz ========" << std::endl;
 		exit(1);
 	}
+	// Parsing end
 
 	return result;
 }

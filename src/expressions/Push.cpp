@@ -11,7 +11,7 @@
 namespace JazExpression {
 
 void Push::interpret(Context *context) {
-	context->push(Push::stringToInt(arguments));
+	context->push(arguments);
 }
 
 int Push::stringToInt(std::string str) {

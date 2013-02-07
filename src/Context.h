@@ -9,18 +9,19 @@
 #define CONTEXT_H_
 #include <stack>
 #include <vector>
-#include "Expression.h"
+#include <string>
 
 class Context {
 private:
-	std::stack<int,std::vector<int> > thestack;
+	std::stack<std::string,std::vector<std::string> > thestack;
 public:
+	void assignVariable(std::string, int);
 	int getIndexForLabel(std::string);
 	int getValueForVariable(std::string);
-	void push(int);
-	int pop(void);
-	int top(void);
-	Context(std::vector<Expression*>);
+	void push(std::string);
+	std::string pop(void);
+	std::string top(void);
+	Context();
 	virtual ~Context();
 };
 

@@ -6,11 +6,12 @@
  */
 
 #include "Print.h"
+#include <iostream>
 
 namespace JazExpression {
 
 void Print::interpret(Context *context) {
-
+	//std::cout << context->pop() << std::endl;
 }
 
 Print::Print(std::string args) : Expression(args) {

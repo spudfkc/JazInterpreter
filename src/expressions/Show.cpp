@@ -11,7 +11,6 @@
 namespace JazExpression {
 
 void Show::interpret(Context *context) {
-	std::cout << "SHOWING" << std::endl;
 	std::cout << this->arguments << std::endl;
 }
 

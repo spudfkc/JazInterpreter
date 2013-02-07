@@ -9,18 +9,17 @@
 
 namespace JazExpression {
 
-void Division::interpret(Context *context)
-{
+void Division::interpret(Context *context) {
 
 // get the top two values from context...
 
-	int value1 = context.pop();
-	int value2 = context.pop();
+	int value1 = stringToInt(context->pop());
+	int value2 = stringToInt(context->pop());
 
 // divide value2 by value1 and return the push 
 
 	int value = value2 / value1;
-	context.push(value);
+	context->push(intToString(value));
 }
 
 Division::Division(std::string args) : Expression(args) {

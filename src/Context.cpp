@@ -7,12 +7,18 @@
 
 #include "Context.h"
 
-void Context::push(int arg) {
+void Context::assignVariable(std::string var, int value) {
+	// TODO
+}
+
+void Context::push(std::string arg) {
 	thestack.push(arg);
 }
 
-int Context::pop(void) {
-	return thestack.top();
+std::string Context::pop(void) {
+	std::string result = thestack.top();
+	thestack.pop();
+	return result;
 }
 
 Context::Context() {

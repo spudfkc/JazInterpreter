@@ -10,10 +10,7 @@
 namespace JazExpression {
 
 void Lvalue::interpret(Context *context) {
-	// TODO
-	// get variable from args - symboltable(scope)
-	// get address of variable
-	// push address onto stack
+	context->push(arguments);
 }
 
 Lvalue::Lvalue(std::string args) : Expression(args) {

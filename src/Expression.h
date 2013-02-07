@@ -13,6 +13,8 @@
 class Expression {
 private:
 public:
+	int stringToInt(std::string);
+	std::string intToString(int);
 	std::string arguments;
 	virtual void interpret(Context*);
 	void setArguments(Expression);

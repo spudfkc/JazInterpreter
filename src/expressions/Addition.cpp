@@ -11,15 +11,15 @@ namespace JazExpression {
 
 void Addition::interpret(Context *context) 
 {
-// get the top two values from context...
 
-	int value1 = context.pop();
-	int value2 = context.pop();
+	// get the top two values from context...
+	std::string value1 = context->pop();
+	std::string value2 = context->pop();
 
-// add them together and return the push 
+	// add them together and return the push
+	int result = Expression::stringToInt(value2) + Expression::stringToInt(value1);
 
-	int value = value2 + value1;
-	context.push(value);
+	context->push(Expression::intToString(result));
 }
 
 Addition::Addition(std::string args) : Expression(args) {
