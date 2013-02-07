@@ -31,7 +31,7 @@ int main() {
 
 	string fp = "/home/ncc/Downloads/demo.jaz";
 
-	vector<Expression> expressionList;    // Holds expressions
+	vector<Expression> expressionList;         // Holds expressions
 	Context context;                           // Holds stack and labels (possibly symbol table?)
 	Parser *p = new Parser();                  // Parses files
 
