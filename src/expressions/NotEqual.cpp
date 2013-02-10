@@ -10,12 +10,8 @@
 namespace JazExpression {
 
 void NotEqual::interpret(Context *context) {
-
-// get the top two values from context...
 	int value1 = stringToInt(context->pop());
 	int value2 = stringToInt(context->pop());
-
-// checks to see if value2 doesn't equal value1 
 
 	if (value2 != value1) {
 		context->push("0");

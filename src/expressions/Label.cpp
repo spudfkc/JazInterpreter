@@ -10,7 +10,7 @@
 namespace JazExpression {
 
 void Label::interpret(Context *context) {
-
+	// no-op
 }
 
 Label::Label(std::string args) : Expression(args) {

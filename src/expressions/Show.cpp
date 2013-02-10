@@ -6,7 +6,6 @@
  */
 
 #include "Show.h"
-#include <iostream>
 
 namespace JazExpression {
 

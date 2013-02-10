@@ -10,14 +10,11 @@
 namespace JazExpression {
 
 void Equal::interpret(Context *context) {
-
-// get the top two values from context...
-
+	// get the top two values from context...
 	int value1 = stringToInt(context->pop());
 	int value2 = stringToInt(context->pop());
 
-// checks to see if value2 equal to value1 
-
+	// checks to see if value2 equal to value1
 	if (value2 == value1)	
 		context->push("0");
 	else {

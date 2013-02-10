@@ -6,11 +6,13 @@
  */
 
 #include "Gotrue.h"
+#include <iostream>
 
 namespace JazExpression {
 
 void Gotrue::interpret(Context *context) {
-
+	// TODO
+	std::cout << "TODO: gotrue" << std::endl;
 }
 
 Gotrue::Gotrue(std::string args) : Expression(args) {

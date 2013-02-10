@@ -6,11 +6,14 @@
  */
 
 #include "Halt.h"
+#include <iostream>
 
 namespace JazExpression {
 
 void Halt::interpret(Context *context) {
-
+	std::cout << "TODO: halt" << std::endl;
+//	std::cout << "-> Halting!" << std::endl;
+//	exit(0);
 }
 
 Halt::Halt(std::string args) : Expression(args) {

@@ -11,7 +11,6 @@
 #include <fstream>
 #include <iostream>
 #include <cstring>
-#include "expressions/Push.h"
 #include "ExpressionFactory.h"
 
 void Parser::trim(std::string& str) {
@@ -37,7 +36,7 @@ std::vector<Expression*> Parser::parse(std::string inputFilePath) {
 		std::exit(1);
 	}
 
-	// Starting the parsing
+	// Parsing start
 	int i = 1;
 	for (std::string line; std::getline (input, line); ) {
 		trim(line);
@@ -63,9 +62,6 @@ std::vector<Expression*> Parser::parse(std::string inputFilePath) {
 				argString = "";
 			}
 
-			//std::cout << "Expression: " << expString.size() << "   " << expString << std::endl;
-			//std::cout << "Argument: " << argString << std::endl;
-
 			std::map<std::string, exp_method_t>::const_iterator iter = createMap.find(expString);
 			if (iter == createMap.end()) {
 				std::cout << "Bad expression found on line: " << i << std::endl;
@@ -73,9 +69,7 @@ std::vector<Expression*> Parser::parse(std::string inputFilePath) {
 				isValid = false;
 			}
 			else {
-				//std::cout << "FOUND: " << iter->first << std::endl;
 				exp_method_t func = iter->second;
-				// need to dereference the function pointer and it needs an instance to run on
 				expression = (factory.*func)(argString);
 				result.push_back(expression);
 			}

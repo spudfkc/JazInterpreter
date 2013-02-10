@@ -11,7 +11,7 @@
 namespace JazExpression {
 
 void Print::interpret(Context *context) {
-	//std::cout << context->pop() << std::endl;
+	std::cout << context->pop() << std::endl;
 }
 
 Print::Print(std::string args) : Expression(args) {

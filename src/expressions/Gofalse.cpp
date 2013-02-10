@@ -6,11 +6,13 @@
  */
 
 #include "Gofalse.h"
+#include <iostream>
 
 namespace JazExpression {
 
 void Gofalse::interpret(Context *context) {
-
+	// TODO
+	std::cout << "TODO: gofalse" << std::endl;
 }
 
 Gofalse::Gofalse(std::string args) : Expression(args) {

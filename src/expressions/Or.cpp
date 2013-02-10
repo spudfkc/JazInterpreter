@@ -10,7 +10,11 @@
 namespace JazExpression {
 
 void Or::interpret(Context *context) {
+	unsigned int val1 = stringToInt(context->pop());
+	unsigned int val2 = stringToInt(context->pop());
 
+	unsigned int result = val1 | val2;
+	context->push(intToString(result));
 }
 
 Or::Or(std::string args) : Expression(args) {

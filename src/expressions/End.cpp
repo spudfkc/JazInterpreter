@@ -6,11 +6,13 @@
  */
 
 #include "End.h"
+#include <iostream>
 
 namespace JazExpression {
 
 void End::interpret(Context *context) {
-
+	// TODO
+	std::cout << "TODO: end" << std::endl;
 }
 
 End::End(std::string args) : Expression(args) {

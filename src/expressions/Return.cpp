@@ -6,11 +6,13 @@
  */
 
 #include "Return.h"
+#include <iostream>
 
 namespace JazExpression {
 
 void Return::interpret(Context *context) {
-
+	// TODO
+	std::cout << "TODO: return" << std::endl;
 }
 
 Return::Return(std::string args) : Expression(args) {

@@ -10,10 +10,8 @@
 namespace JazExpression {
 
 void Rvalue::interpret(Context *context) {
-	// TODO
-	// get variable from args - symboltable(scope)
-	// get contents of variable
-	// push contents onto stack
+	std::string value = context->getVariable(arguments);
+	context->push(value);
 }
 
 Rvalue::Rvalue(std::string args) : Expression(args) {

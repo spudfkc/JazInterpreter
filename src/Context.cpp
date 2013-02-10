@@ -7,8 +7,16 @@
 
 #include "Context.h"
 
+std::string Context::getVariable(std::string var) {
+	std::string result;
+
+	result = variableMap[var];
+
+	return result;
+}
+
 void Context::assignVariable(std::string var, int value) {
-	// TODO
+	variableMap[var] = value;
 }
 
 void Context::push(std::string arg) {

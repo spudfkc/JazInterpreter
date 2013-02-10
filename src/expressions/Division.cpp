@@ -10,14 +10,11 @@
 namespace JazExpression {
 
 void Division::interpret(Context *context) {
-
-// get the top two values from context...
-
+	// get the top two values from context
 	int value1 = stringToInt(context->pop());
 	int value2 = stringToInt(context->pop());
 
-// divide value2 by value1 and return the push 
-
+	// divide value2 by value1 and return the push
 	int value = value2 / value1;
 	context->push(intToString(value));
 }

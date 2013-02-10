@@ -6,11 +6,13 @@
  */
 
 #include "Begin.h"
+#include <iostream>
 
 namespace JazExpression {
 
 void Begin::interpret(Context *context) {
-
+	// TODO
+	std::cout << "TODO: goto" << std::endl;
 }
 
 Begin::Begin(std::string args) : Expression(args) {

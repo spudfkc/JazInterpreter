@@ -10,11 +10,14 @@
 #include <stack>
 #include <vector>
 #include <string>
+#include <map>
 
 class Context {
 private:
+	std::map<std::string, int> variableMap;
 	std::stack<std::string,std::vector<std::string> > thestack;
 public:
+	std::string getVariable(std::string);
 	void assignVariable(std::string, int);
 	int getIndexForLabel(std::string);
 	int getValueForVariable(std::string);
