@@ -72,6 +72,12 @@ std::vector<Expression*> Parser::parse(std::string inputFilePath) {
 				exp_method_t func = iter->second;
 				expression = (factory.*func)(argString);
 				result.push_back(expression);
+
+				// we need to check to see if the expression is a label because
+				// we need to know where the labels are before we interpret
+				if (expString.compare("label") == 0) {
+					labelMap[argString] = i;
+				}
 			}
 			//std::cout << "Line " << i++ << ": " << line << std::endl << std::endl;
 		}
