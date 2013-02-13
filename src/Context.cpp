@@ -42,6 +42,7 @@ std::string Context::pop(void) {
 }
 
 Context::Context() {
+	instructions.push(-1);
 	instructions.push(0);
 	// TODO Auto-generated constructor stub
 

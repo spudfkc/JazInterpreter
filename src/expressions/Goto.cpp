@@ -11,8 +11,7 @@
 namespace JazExpression {
 
 void Goto::interpret(Context *context) {
-	int result = context->getIndexForLabel(arguments);
-	
+	context->instructions.push(context->getIndexForLabel(arguments));
 }
 
 Goto::Goto(std::string args) : Expression(args) {
