@@ -18,7 +18,6 @@ public:
 	std::string intToString(int);
 	std::string arguments;
 	virtual int interpret(Context*);
-	void setArguments(Expression);
 	Expression(std::string);
 	virtual ~Expression();
 };

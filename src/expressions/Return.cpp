@@ -10,10 +10,8 @@
 
 namespace JazExpression {
 
-int Return::interpret(Context *context) {
-	// TODO
-	std::cout << "TODO: return" << std::endl;
-	return -1;
+void Return::interpret(Context *context) {
+	context->instructions.pop();
 }
 
 Return::Return(std::string args) : Expression(args) {

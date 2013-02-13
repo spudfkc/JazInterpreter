@@ -12,7 +12,6 @@ namespace JazExpression {
 
 int Push::interpret(Context *context) {
 	context->push(arguments);
-	std::cout << "PUSHED " << arguments << std::endl;
 	return -1;
 }
 

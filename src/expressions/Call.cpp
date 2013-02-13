@@ -11,9 +11,8 @@
 namespace JazExpression {
 
 int Call::interpret(Context *context) {
-	// TODO
-	std::cout << "TODO: call" << std::endl;
-	return -1;
+
+	return context->getIndexForLabel(arguments);
 }
 
 Call::Call(std::string args) : Expression(args) {

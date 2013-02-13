@@ -8,6 +8,10 @@
 #include "Context.h"
 #include <iostream>
 
+int Context::nextInstruction() {
+	return instructions.pop();
+}
+
 int Context::getVariable(std::string var) {
 	return variableMap[var];
 }
@@ -36,6 +40,7 @@ std::string Context::pop(void) {
 }
 
 Context::Context() {
+	instructions.push(0);
 	// TODO Auto-generated constructor stub
 
 }

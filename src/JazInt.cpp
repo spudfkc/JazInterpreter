@@ -40,16 +40,11 @@ int main() {
 	// Now interpret all the expressions
 	cout << "======= Starting interpret" << endl;
 	int i;
-	for (i = 0; i < expressionList.size();) {
+	while ((i = context->nextInstruction()) != -1) {
 		cout << "Expression #: " << i << endl;
 		Expression *expression = expressionList.at(i);
-		int jump = expression->interpret(context);
-		if (jump > 0) {
-			i = jump;
-		}
-		else {
-			i++;
-		}
+		context->instructions.push(++i);
+		expression->interpret(context);
 	}
 	cout << "======= End interpret" << endl;
 
