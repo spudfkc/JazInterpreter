@@ -12,7 +12,7 @@ namespace JazExpression {
 
 class Gofalse : public Expression {
 public:
-	void interpret(Context*);
+	int interpret(Context*);
 	Gofalse(std::string);
 	virtual ~Gofalse();
 };

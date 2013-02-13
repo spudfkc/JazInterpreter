@@ -6,17 +6,23 @@
  */
 
 #include "Context.h"
+#include <iostream>
 
-std::string Context::getVariable(std::string var) {
-	std::string result;
-
-	result = variableMap[var];
-
-	return result;
+int Context::getVariable(std::string var) {
+	return variableMap[var];
 }
 
 void Context::assignVariable(std::string var, int value) {
+	//std::cout << "Assigning " << var << " = " << value << std::endl;
 	variableMap[var] = value;
+}
+
+int Context::getIndexForLabel(std::string label) {
+	return labelMap[label];
+}
+
+void Context::setLabelMap(std::map<std::string, int> map) {
+	labelMap = map;
 }
 
 void Context::push(std::string arg) {

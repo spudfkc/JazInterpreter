@@ -13,7 +13,8 @@ namespace JazExpression {
 
 class Print : public Expression {
 public:
-	void interpret(Context*);
+	bool isNumber(std::string&);
+	int interpret(Context*);
 	Print(std::string);
 	virtual ~Print();
 };

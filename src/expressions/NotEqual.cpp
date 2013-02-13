@@ -9,7 +9,7 @@
 
 namespace JazExpression {
 
-void NotEqual::interpret(Context *context) {
+int NotEqual::interpret(Context *context) {
 	int value1 = stringToInt(context->pop());
 	int value2 = stringToInt(context->pop());
 
@@ -19,6 +19,8 @@ void NotEqual::interpret(Context *context) {
 	else {
 		context->push("1");
 	}
+
+	return -1;
 }
 
 NotEqual::NotEqual(std::string args) : Expression(args) {

@@ -9,8 +9,9 @@
 
 namespace JazExpression {
 
-void Pop::interpret(Context *context) {
+int Pop::interpret(Context *context) {
 	context->pop();
+	return -1;
 }
 
 Pop::Pop(std::string args) : Expression(args) {

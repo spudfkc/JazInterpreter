@@ -9,8 +9,9 @@
 
 namespace JazExpression {
 
-void Lvalue::interpret(Context *context) {
+int Lvalue::interpret(Context *context) {
 	context->push(arguments);
+	return -1;
 }
 
 Lvalue::Lvalue(std::string args) : Expression(args) {

@@ -23,7 +23,7 @@
 #include <iostream>
 #include "Expression.h"
 #include "Parser.h"
-#include "Context.h"
+#include "Context.h"/
 
 using namespace std;
 
@@ -34,16 +34,22 @@ int main() {
 	vector<Expression*> expressionList;    // Holds expressions
 	Context *context = new Context();      // Holds stack and labels (possibly symbol table?)
 	Parser *p = new Parser();              // Parses files
-
 	expressionList = p->parse(fp);
+	context->setLabelMap(p->getLabelMap());
 
 	// Now interpret all the expressions
 	cout << "======= Starting interpret" << endl;
 	int i;
-	for (i = 0; i < expressionList.size(); i++) {
+	for (i = 0; i < expressionList.size();) {
 		cout << "Expression #: " << i << endl;
 		Expression *expression = expressionList.at(i);
-		expression->interpret(context);
+		int jump = expression->interpret(context);
+		if (jump > 0) {
+			i = jump;
+		}
+		else {
+			i++;
+		}
 	}
 	cout << "======= End interpret" << endl;
 

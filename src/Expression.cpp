@@ -10,8 +10,9 @@
 #include <sstream>
 #include <cstdlib>
 
-void Expression::interpret(Context *context) {
+int Expression::interpret(Context *context) {
 	std::cout << "IN PARENT CLASS" << std::endl;
+	return -1;
 }
 
 std::string Expression::intToString(int i) {

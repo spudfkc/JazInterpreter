@@ -12,7 +12,7 @@ namespace JazExpression {
 
 class Subtraction : public Expression {
 public:
-	void interpret(Context*);
+	int interpret(Context*);
 	Subtraction(std::string);
 	virtual ~Subtraction();
 };

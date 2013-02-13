@@ -9,7 +9,7 @@
 
 namespace JazExpression {
 
-void Less::interpret(Context *context) {
+int Less::interpret(Context *context) {
 	int value1 = stringToInt(context->pop());
 	int value2 = stringToInt(context->pop());
 
@@ -19,6 +19,7 @@ void Less::interpret(Context *context) {
 	else {
 		context->push("1");
 	}
+	return -1;
 }
 
 Less::Less(std::string args) : Expression(args) {

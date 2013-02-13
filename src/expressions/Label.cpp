@@ -9,8 +9,9 @@
 
 namespace JazExpression {
 
-void Label::interpret(Context *context) {
+int Label::interpret(Context *context) {
 	// no-op
+	return -1;
 }
 
 Label::Label(std::string args) : Expression(args) {

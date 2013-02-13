@@ -9,10 +9,11 @@
 
 namespace JazExpression {
 
-void Not::interpret(Context *context) {
+int Not::interpret(Context *context) {
 	unsigned int val = stringToInt(context->pop());
 	val = ~val;
 	context->push(intToString(val));
+	return -1;
 }
 
 Not::Not(std::string args) : Expression(args) {

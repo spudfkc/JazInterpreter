@@ -10,8 +10,26 @@
 
 namespace JazExpression {
 
-void Print::interpret(Context *context) {
-	std::cout << context->pop() << std::endl;
+bool Print::isNumber(std::string& s) {
+	std::string::const_iterator it = s.begin();
+	while (it != s.end() && std::isdigit(*it)) ++it;
+	return !s.empty() && it == s.end();
+}
+
+int Print::interpret(Context *context) {
+	std::string content = context->pop();
+
+	int value;
+	if (!isNumber(content)) {
+		// evaluate
+		value = context->getVariable(content);
+	}
+	else {
+		value = stringToInt(content);
+	}
+
+	std::cout << value << std::endl;
+	return -1;
 }
 
 Print::Print(std::string args) : Expression(args) {

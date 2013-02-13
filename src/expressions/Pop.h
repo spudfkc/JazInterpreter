@@ -13,7 +13,7 @@ namespace JazExpression {
 
 class Pop : public Expression {
 public:
-	void interpret(Context*);
+	int interpret(Context*);
 	Pop(std::string);
 	virtual ~Pop();
 };

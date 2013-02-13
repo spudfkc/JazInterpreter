@@ -14,13 +14,14 @@
 
 class Context {
 private:
+	std::map<std::string, int> labelMap;
 	std::map<std::string, int> variableMap;
 	std::stack<std::string,std::vector<std::string> > thestack;
 public:
-	std::string getVariable(std::string);
+	int getVariable(std::string);
 	void assignVariable(std::string, int);
+	void setLabelMap(std::map<std::string, int>);
 	int getIndexForLabel(std::string);
-	int getValueForVariable(std::string);
 	void push(std::string);
 	std::string pop(void);
 	std::string top(void);

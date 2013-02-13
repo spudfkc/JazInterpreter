@@ -12,7 +12,7 @@ namespace JazExpression {
 
 class Equal : public Expression {
 public:
-	void interpret(Context*);
+	int interpret(Context*);
 	Equal(std::string);
 	virtual ~Equal();
 };

@@ -10,9 +10,10 @@
 
 namespace JazExpression {
 
-void Gofalse::interpret(Context *context) {
+int Gofalse::interpret(Context *context) {
 	// TODO
 	std::cout << "TODO: gofalse" << std::endl;
+	return -1;
 }
 
 Gofalse::Gofalse(std::string args) : Expression(args) {

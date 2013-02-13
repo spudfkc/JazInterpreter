@@ -9,8 +9,9 @@
 
 namespace JazExpression {
 
-void Show::interpret(Context *context) {
+int Show::interpret(Context *context) {
 	std::cout << this->arguments << std::endl;
+	return -1;
 }
 
 Show::Show(std::string args) : Expression(args) {

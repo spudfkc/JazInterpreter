@@ -78,6 +78,7 @@ std::vector<Expression*> Parser::parse(std::string inputFilePath) {
 				if (expString.compare("label") == 0) {
 					labelMap[argString] = i;
 				}
+				i++;
 			}
 			//std::cout << "Line " << i++ << ": " << line << std::endl << std::endl;
 		}
@@ -94,6 +95,10 @@ std::vector<Expression*> Parser::parse(std::string inputFilePath) {
 	// Parsing end
 
 	return result;
+}
+
+std::map<std::string, int> Parser::getLabelMap(void) {
+	return labelMap;
 }
 
 Parser::Parser() {

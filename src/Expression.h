@@ -9,6 +9,7 @@
 #define EXPRESSION_H_
 #include "Context.h"
 #include <string>
+#include <iostream>
 
 class Expression {
 private:
@@ -16,7 +17,7 @@ public:
 	int stringToInt(std::string);
 	std::string intToString(int);
 	std::string arguments;
-	virtual void interpret(Context*);
+	virtual int interpret(Context*);
 	void setArguments(Expression);
 	Expression(std::string);
 	virtual ~Expression();

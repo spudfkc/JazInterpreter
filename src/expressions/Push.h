@@ -17,7 +17,7 @@ private:
 	int stringToInt(std::string);
 public:
 //	Expression create(std::string);
-	void interpret(Context*);
+	int interpret(Context*);
 	Push(std::string);
 	virtual ~Push();
 };

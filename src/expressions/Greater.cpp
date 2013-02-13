@@ -9,7 +9,7 @@
 
 namespace JazExpression {
 
-void Greater::interpret(Context *context) {
+int Greater::interpret(Context *context) {
 	int value1 = stringToInt(context->pop());
 	int value2 = stringToInt(context->pop());
 
@@ -19,6 +19,7 @@ void Greater::interpret(Context *context) {
 	else {
 		context->push("1");
 	}
+	return -1;
 }
 
 Greater::Greater(std::string args) : Expression(args) {

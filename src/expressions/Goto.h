@@ -13,7 +13,7 @@ namespace JazExpression {
 
 class Goto : public Expression {
 public:
-	void interpret(Context*);
+	int interpret(Context*);
 	Goto(std::string);
 	virtual ~Goto();
 };

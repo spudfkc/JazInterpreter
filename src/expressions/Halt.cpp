@@ -10,10 +10,11 @@
 
 namespace JazExpression {
 
-void Halt::interpret(Context *context) {
+int Halt::interpret(Context *context) {
 	std::cout << "TODO: halt" << std::endl;
 //	std::cout << "-> Halting!" << std::endl;
 //	exit(0);
+	return -1;
 }
 
 Halt::Halt(std::string args) : Expression(args) {
