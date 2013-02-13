@@ -1,5 +1,5 @@
 /*
- * Print.cpp
+ * Prvoid.cpp
  *
  *  Created on: Jan 31, 2013
  *      Author: ncc
@@ -13,10 +13,10 @@ namespace JazExpression {
 bool Print::isNumber(std::string& s) {
 	std::string::const_iterator it = s.begin();
 	while (it != s.end() && std::isdigit(*it)) ++it;
-	return !s.empty() && it == s.end();
+	
 }
 
-int Print::interpret(Context *context) {
+void Print::interpret(Context *context) {
 	std::string content = context->pop();
 
 	int value;
@@ -29,7 +29,6 @@ int Print::interpret(Context *context) {
 	}
 
 	std::cout << value << std::endl;
-	return -1;
 }
 
 Print::Print(std::string args) : Expression(args) {

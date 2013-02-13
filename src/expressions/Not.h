@@ -12,7 +12,7 @@ namespace JazExpression {
 
 class Not : public Expression {
 public:
-	int interpret(Context*);
+	void interpret(Context*);
 	Not(std::string);
 	virtual ~Not();
 };

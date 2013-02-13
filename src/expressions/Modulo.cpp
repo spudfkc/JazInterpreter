@@ -9,13 +9,13 @@
 
 namespace JazExpression {
 
-int Modulo::interpret(Context *context) {
+void Modulo::interpret(Context *context) {
 	int value1 = stringToInt(context->pop());
 	int value2 = stringToInt(context->pop());
 
 	int value = value2 % value1;
 	context->push(intToString(value));
-	return -1;
+	
 }
 
 Modulo::Modulo(std::string args) : Expression(args) {

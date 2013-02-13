@@ -9,14 +9,14 @@
 
 namespace JazExpression {
 
-int And::interpret(Context *context) {
+void And::interpret(Context *context) {
 	unsigned int arg1 = stringToInt(context->pop());
 	unsigned int arg2 = stringToInt(context->pop());
 
 	std::string result = intToString(arg1 & arg2);
 	context->push(result);
 
-	return -1;
+	
 }
 
 And::And(std::string args) : Expression(args) {

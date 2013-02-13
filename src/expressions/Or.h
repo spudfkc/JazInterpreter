@@ -12,7 +12,7 @@ namespace JazExpression {
 
 class Or : public Expression {
 public:
-	int interpret(Context*);
+	void interpret(Context*);
 	Or(std::string);
 	virtual ~Or();
 };

@@ -10,10 +10,10 @@
 
 namespace JazExpression {
 
-int Gotrue::interpret(Context *context) {
+void Gotrue::interpret(Context *context) {
 	// TODO
 	std::cout << "TODO: gotrue" << std::endl;
-	return -1;
+	
 }
 
 Gotrue::Gotrue(std::string args) : Expression(args) {

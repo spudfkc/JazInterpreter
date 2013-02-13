@@ -12,7 +12,7 @@ namespace JazExpression {
 
 class LessEqual : public Expression {
 public:
-	int interpret(Context*);
+	void interpret(Context*);
 	LessEqual(std::string);
 	virtual ~LessEqual();
 };

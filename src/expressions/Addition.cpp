@@ -9,7 +9,7 @@
 
 namespace JazExpression {
 
-int Addition::interpret(Context *context)
+void Addition::interpret(Context *context)
 {
 
 	// get the top two values from context...
@@ -21,7 +21,7 @@ int Addition::interpret(Context *context)
 
 	context->push(Expression::intToString(result));
 
-	return -1;
+	
 }
 
 Addition::Addition(std::string args) : Expression(args) {

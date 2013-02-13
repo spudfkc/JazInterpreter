@@ -12,7 +12,7 @@ namespace JazExpression {
 
 class Multiplication : public Expression {
 public:
-	int interpret(Context*);
+	void interpret(Context*);
 	Multiplication(std::string);
 	virtual ~Multiplication();
 };

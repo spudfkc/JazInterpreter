@@ -12,7 +12,7 @@ namespace JazExpression {
 
 class And : public Expression {
 public:
-	int interpret(Context*);
+	void interpret(Context*);
 	And(std::string);
 	virtual ~And();
 };

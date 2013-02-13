@@ -9,7 +9,9 @@
 #include <iostream>
 
 int Context::nextInstruction() {
-	return instructions.pop();
+	int result = instructions.top();
+	instructions.pop();
+	return result;
 }
 
 int Context::getVariable(std::string var) {

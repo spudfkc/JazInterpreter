@@ -9,7 +9,7 @@
 
 namespace JazExpression {
 
-int Equal::interpret(Context *context) {
+void Equal::interpret(Context *context) {
 	// get the top two values from context...
 	int value1 = stringToInt(context->pop());
 	int value2 = stringToInt(context->pop());
@@ -21,7 +21,7 @@ int Equal::interpret(Context *context) {
 		context->push("1");
 	}
 
-	return -1;
+	
 }
 
 Equal::Equal(std::string args) : Expression(args) {

@@ -12,7 +12,7 @@ namespace JazExpression {
 
 class Greater : public Expression {
 public:
-	int interpret(Context*);
+	void interpret(Context*);
 	Greater(std::string);
 	virtual ~Greater();
 };

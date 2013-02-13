@@ -12,7 +12,7 @@ namespace JazExpression {
 
 class Division : public Expression {
 public:
-	int interpret(Context*);
+	void interpret(Context*);
 	Division(std::string);
 	virtual ~Division();
 };

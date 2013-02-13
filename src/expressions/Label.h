@@ -14,7 +14,7 @@ namespace JazExpression {
 
 class Label : public Expression {
 public:
-	int interpret(Context*);
+	void interpret(Context*);
 	Label(std::string);
 	virtual ~Label();
 };

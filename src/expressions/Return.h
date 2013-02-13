@@ -13,7 +13,7 @@ namespace JazExpression {
 
 class Return : public Expression {
 public:
-	int interpret(Context*);
+	void interpret(Context*);
 	Return(std::string);
 	virtual ~Return();
 };

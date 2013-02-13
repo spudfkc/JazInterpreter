@@ -13,7 +13,7 @@ namespace JazExpression {
 
 class Begin : public Expression {
 public:
-	int interpret(Context*);
+	void interpret(Context*);
 	Begin(std::string);
 	virtual ~Begin();
 };

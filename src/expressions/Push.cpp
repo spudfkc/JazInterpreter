@@ -10,9 +10,9 @@
 
 namespace JazExpression {
 
-int Push::interpret(Context *context) {
+void Push::interpret(Context *context) {
 	context->push(arguments);
-	return -1;
+	
 }
 
 int Push::stringToInt(std::string str) {

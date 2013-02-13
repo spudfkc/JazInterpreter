@@ -14,7 +14,7 @@ namespace JazExpression {
 class Print : public Expression {
 public:
 	bool isNumber(std::string&);
-	int interpret(Context*);
+	void interpret(Context*);
 	Print(std::string);
 	virtual ~Print();
 };

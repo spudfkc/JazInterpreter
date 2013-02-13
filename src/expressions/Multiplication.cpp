@@ -9,13 +9,13 @@
 
 namespace JazExpression {
 
-int Multiplication::interpret(Context *context) {
+void Multiplication::interpret(Context *context) {
 	int value1 = stringToInt(context->pop());
 	int value2 = stringToInt(context->pop());
 
 	int value = value2 * value1;
 	context->push(intToString(value));
-	return -1;
+	
 }
 
 Multiplication::Multiplication(std::string args) : Expression(args) {

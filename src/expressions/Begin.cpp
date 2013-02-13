@@ -10,10 +10,10 @@
 
 namespace JazExpression {
 
-int Begin::interpret(Context *context) {
+void Begin::interpret(Context *context) {
 	// TODO
 	std::cout << "TODO: begin" << std::endl;
-	return -1;
+	
 }
 
 Begin::Begin(std::string args) : Expression(args) {

@@ -10,9 +10,9 @@
 
 namespace JazExpression {
 
-int Goto::interpret(Context *context) {
+void Goto::interpret(Context *context) {
 	int result = context->getIndexForLabel(arguments);
-	return result;
+	
 }
 
 Goto::Goto(std::string args) : Expression(args) {

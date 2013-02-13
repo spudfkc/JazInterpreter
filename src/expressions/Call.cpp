@@ -10,9 +10,9 @@
 
 namespace JazExpression {
 
-int Call::interpret(Context *context) {
+void Call::interpret(Context *context) {
 
-	return context->getIndexForLabel(arguments);
+	
 }
 
 Call::Call(std::string args) : Expression(args) {

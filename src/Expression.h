@@ -17,7 +17,7 @@ public:
 	int stringToInt(std::string);
 	std::string intToString(int);
 	std::string arguments;
-	virtual int interpret(Context*);
+	virtual void interpret(Context*);
 	Expression(std::string);
 	virtual ~Expression();
 };
