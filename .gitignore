@@ -3,5 +3,6 @@
 
 .*
 *.o
+*.d
 !.gitignore
 
