@@ -8,6 +8,18 @@
 #include "Context.h"
 #include <iostream>
 
+
+void Context::popScope(void) {
+	JazExpression::SymbolTable *tmp = NULL;
+	// TODO
+}
+
+void Context::newScope(JazExpression::SymbolTable scope) {
+	scope.setParent(currentScope);
+//	currentScope
+	// TODO
+}
+
 int Context::nextInstruction() {
 	int result = instructions.top();
 	instructions.pop();
@@ -19,7 +31,6 @@ int Context::getVariable(std::string var) {
 }
 
 void Context::assignVariable(std::string var, int value) {
-	//std::cout << "Assigning " << var << " = " << value << std::endl;
 	variableMap[var] = value;
 }
 

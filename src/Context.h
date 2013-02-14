@@ -11,7 +11,6 @@
 #include <vector>
 #include <string>
 #include <map>
-
 #include "SymbolTable.h"
 
 class Context {
@@ -19,6 +18,7 @@ private:
 	std::map<std::string, int> labelMap;
 	std::map<std::string, int> variableMap;
 	std::stack<std::string,std::vector<std::string> > thestack;
+	JazExpression::SymbolTable *currentScope;
 public:
 	int nextInstruction(void);
 

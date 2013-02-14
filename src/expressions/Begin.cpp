@@ -6,12 +6,15 @@
  */
 
 #include "Begin.h"
+#include "../SymbolTable.h"
 #include <iostream>
 
 namespace JazExpression {
 
 void Begin::interpret(Context *context) {
 	// TODO
+	SymbolTable *newScope = new SymbolTable();
+	context->newScope(*newScope);
 	std::cout << "TODO: begin" << std::endl;
 	
 }

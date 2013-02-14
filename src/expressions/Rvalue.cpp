@@ -12,7 +12,6 @@ namespace JazExpression {
 void Rvalue::interpret(Context *context) {
 	std::string value = intToString(context->getVariable(arguments));
 	context->push(value);
-	
 }
 
 Rvalue::Rvalue(std::string args) : Expression(args) {

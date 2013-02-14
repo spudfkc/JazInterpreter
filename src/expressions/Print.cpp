@@ -17,18 +17,7 @@ bool Print::isNumber(std::string& s) {
 }
 
 void Print::interpret(Context *context) {
-	std::string content = context->pop();
-
-	int value;
-	if (!isNumber(content)) {
-		// evaluate
-		value = context->getVariable(content);
-	}
-	else {
-		value = stringToInt(content);
-	}
-
-	std::cout << value << std::endl;
+	std::cout << context->pop() << std::endl;
 }
 
 Print::Print(std::string args) : Expression(args) {
