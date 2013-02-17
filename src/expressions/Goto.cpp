@@ -11,9 +11,9 @@
 namespace JazExpression {
 
 void Goto::interpret(Context *context) {
-	std::cout << "This is a GOTO" << std::endl;
+//	std::cout << "This is a GOTO" << std::endl;
 	int result = context->getIndexForLabel(arguments);
-	std::cout << "Found label: " << arguments << " @ " << result << std::endl;
+//	std::cout << "Found label: " << arguments << " @ " << result << std::endl;
 	context->instructions.push(result);
 }
 

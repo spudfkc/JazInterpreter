@@ -36,8 +36,9 @@ int main() {
 	vector<Expression*> expressionList;    // Holds expressions
 	Context *context = new Context();      // Holds stack and labels (possibly symbol table?)
 	Parser *p = new Parser();              // Parses files
+
 	JazExpression::SymbolTable *rootScope = new JazExpression::SymbolTable();
-	context->newScope(*rootScope);
+	context->newScope(rootScope);
 
 	expressionList = p->parse(fp);
 
@@ -50,7 +51,7 @@ int main() {
 	int i;
 	// this -1 idea doesn't work as i intended
 	while ((i = context->nextInstruction()) != -1 && i < expressionList.size()) {
-		cout << "Expression #: " << i << endl;
+//		cout << "Expression #: " << i << endl;
 		Expression *expression = expressionList.at(i);
 		context->instructions.push(++i);
 		expression->interpret(context);

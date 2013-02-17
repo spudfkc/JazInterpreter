@@ -25,7 +25,7 @@ public:
 	std::stack<int> instructions;
 
 	void popScope(void);
-	void newScope(JazExpression::SymbolTable);
+	void newScope(JazExpression::SymbolTable *);
 
 	int getVariable(std::string);
 	void assignVariable(std::string, int);

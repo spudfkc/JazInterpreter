@@ -11,9 +11,7 @@
 namespace JazExpression {
 
 void End::interpret(Context *context) {
-	// TODO
-	std::cout << "TODO: end" << std::endl;
-	
+	context->popScope();
 }
 
 End::End(std::string args) : Expression(args) {

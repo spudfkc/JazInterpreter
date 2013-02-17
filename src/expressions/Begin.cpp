@@ -12,11 +12,8 @@
 namespace JazExpression {
 
 void Begin::interpret(Context *context) {
-	// TODO
 	SymbolTable *newScope = new SymbolTable();
-	context->newScope(*newScope);
-	std::cout << "TODO: begin" << std::endl;
-	
+	context->newScope(newScope);
 }
 
 Begin::Begin(std::string args) : Expression(args) {
