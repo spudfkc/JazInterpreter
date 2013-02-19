@@ -8,6 +8,19 @@
 #include "Context.h"
 #include <iostream>
 
+
+void Context::popScope(void) {
+	// TODO cleanup
+	currentScope = currentScope->getParent();
+}
+
+void Context::newScope(JazExpression::SymbolTable *scope) {
+	if (currentScope != NULL) {
+		scope->setParent(currentScope);
+	}
+	currentScope = scope;
+}
+
 int Context::nextInstruction() {
 	int result = instructions.top();
 	instructions.pop();
@@ -15,12 +28,13 @@ int Context::nextInstruction() {
 }
 
 int Context::getVariable(std::string var) {
-	return variableMap[var];
+	return currentScope->resolve(var);
+//	return variableMap[var];
 }
 
 void Context::assignVariable(std::string var, int value) {
-	//std::cout << "Assigning " << var << " = " << value << std::endl;
-	variableMap[var] = value;
+	currentScope->setVariable(var, value);
+//	variableMap[var] = value;
 }
 
 int Context::getIndexForLabel(std::string label) {
@@ -42,10 +56,9 @@ std::string Context::pop(void) {
 }
 
 Context::Context() {
-	instructions.push(-1);
-	instructions.push(0);
-	// TODO Auto-generated constructor stub
-
+	currentScope = new JazExpression::SymbolTable();
+	instructions.push(-1); // This should indicate the end of intructions
+	instructions.push(0);  // start at spot 0
 }
 
 Context::~Context() {
