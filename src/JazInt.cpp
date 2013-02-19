@@ -30,7 +30,10 @@ using namespace std;
 
 int main() {
 
-	// TODO input arguments
+	// TODO
+	// * input arguments
+	// * tab parsing
+
 	string fp = "/home/ncc/Downloads/recFact2.jaz";
 
 	vector<Expression*> expressionList;    // Holds expressions
@@ -52,7 +55,7 @@ int main() {
 	int i;
 	// this -1 idea doesn't work as i intended
 	while ((i = context->nextInstruction()) != -1 && i < expressionList.size()) {
-		cout << "Expression #: " << i << endl;
+//		cout << "Expression #: " << i << endl;
 		Expression *expression = expressionList.at(i);
 		context->instructions.push(++i);
 		expression->interpret(context);
