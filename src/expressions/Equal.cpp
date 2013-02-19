@@ -16,9 +16,9 @@ void Equal::interpret(Context *context) {
 
 	// checks to see if value2 equal to value1
 	if (value2 == value1)	
-		context->push("0");
-	else {
 		context->push("1");
+	else {
+		context->push("0");
 	}
 
 	

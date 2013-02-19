@@ -14,10 +14,10 @@ void LessEqual::interpret(Context *context) {
 	int value2 = stringToInt(context->pop());
 
 	if (value2 <= value1) {
-		context->push("0");
+		context->push("1");
 	}
 	else {
-		context->push("1");
+		context->push("0");
 	}
 	
 }

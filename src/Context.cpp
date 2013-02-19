@@ -8,6 +8,9 @@
 #include "Context.h"
 #include <iostream>
 
+int Context::getStackSize(void) {
+	return thestack.size();
+}
 
 void Context::popScope(void) {
 	// TODO cleanup
@@ -29,12 +32,10 @@ int Context::nextInstruction() {
 
 int Context::getVariable(std::string var) {
 	return currentScope->resolve(var);
-//	return variableMap[var];
 }
 
 void Context::assignVariable(std::string var, int value) {
 	currentScope->setVariable(var, value);
-//	variableMap[var] = value;
 }
 
 int Context::getIndexForLabel(std::string label) {

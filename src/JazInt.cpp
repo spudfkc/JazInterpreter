@@ -31,7 +31,7 @@ using namespace std;
 int main() {
 
 	// TODO input arguments
-	string fp = "/home/ncc/Downloads/demo.jaz";
+	string fp = "/home/ncc/Downloads/foo.jaz";
 
 	vector<Expression*> expressionList;    // Holds expressions
 	Context *context = new Context();      // Holds stack and labels (possibly symbol table?)

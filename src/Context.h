@@ -22,6 +22,7 @@ private:
 public:
 	int nextInstruction(void);
 
+	int getStackSize(void);
 	std::stack<int> instructions;
 
 	void popScope(void);
