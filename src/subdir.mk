@@ -8,21 +8,24 @@ CPP_SRCS += \
 ../src/Expression.cpp \
 ../src/ExpressionFactory.cpp \
 ../src/JazInt.cpp \
-../src/Parser.cpp 
+../src/Parser.cpp \
+../src/SymbolTable.cpp 
 
 OBJS += \
 ./src/Context.o \
 ./src/Expression.o \
 ./src/ExpressionFactory.o \
 ./src/JazInt.o \
-./src/Parser.o 
+./src/Parser.o \
+./src/SymbolTable.o 
 
 CPP_DEPS += \
 ./src/Context.d \
 ./src/Expression.d \
 ./src/ExpressionFactory.d \
 ./src/JazInt.d \
-./src/Parser.d 
+./src/Parser.d \
+./src/SymbolTable.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
