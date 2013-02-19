@@ -10,15 +10,30 @@
 
 namespace JazExpression {
 
+int SymbolTable::resolveDirectly(std::string var) {
+	int result;
+	std::map<std::string, int>::const_iterator iter = variableMap.find(var);
+	if (iter == variableMap.end()) {
+		result = 0;
+	}
+	else {
+		result = variableMap[var];
+	}
+	return result;
+}
+
 int SymbolTable::resolve(std::string var) {
 	int result;
 	std::map<std::string, int>::const_iterator iter = variableMap.find(var);
 	if (iter == variableMap.end()) {
-//		std::cout << "Variable " << var << " Not found in this scope" << std::endl;
-		result = parent->resolve(var);
+		if (parent == NULL) {
+			result = 0;
+		}
+		else {
+			result = parent->resolve(var);
+		}
 	}
 	else {
-//		std::cout << "Variable " << var << " found with value " << iter->second << std::endl;
 		result = iter->second;
 	}
 	return result;
@@ -41,6 +56,10 @@ void SymbolTable::setVariable(std::string var, int value) {
 			variableMap[var] = value;
 		}
 	}
+}
+
+void SymbolTable::setVariableDirectly(std::string var, int value) {
+	variableMap[var] = value;
 }
 
 bool SymbolTable::hasVariable(std::string var) {
