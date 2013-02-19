@@ -17,6 +17,7 @@ private:
 	std::map<std::string, int> variableMap;
 	SymbolTable *parent;
 public:
+	int afterCall;
 	bool hasVariable(std::string);
 	SymbolTable * getParent(void);
 	void setParent(SymbolTable*);

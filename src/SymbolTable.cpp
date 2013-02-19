@@ -23,39 +23,60 @@ int SymbolTable::resolveDirectly(std::string var) {
 }
 
 int SymbolTable::resolve(std::string var) {
-	int result;
-	std::map<std::string, int>::const_iterator iter = variableMap.find(var);
-	if (iter == variableMap.end()) {
-		if (parent == NULL) {
-			result = 0;
-		}
-		else {
-			result = parent->resolve(var);
-		}
+
+	if (afterCall == -1) {
+		return variableMap[var];
+	}
+	else if (afterCall) {
+		return variableMap[var];
 	}
 	else {
-		result = iter->second;
+		return parent->resolve(var);
 	}
-	return result;
+//
+//	int result;
+//	std::map<std::string, int>::const_iterator iter = variableMap.find(var);
+//	if (iter == variableMap.end()) {
+//		if (parent == NULL) {
+//			result = 0;
+//		}
+//		else {
+//			result = parent->resolve(var);
+//		}
+//	}
+//	else {
+//		result = iter->second;
+//	}
+//	return result;
 }
 
 void SymbolTable::setVariable(std::string var, int value) {
-	if (hasVariable(var)) {
+
+	if (afterCall == -1) {
 		variableMap[var] = value;
 	}
-	else {
-		if (parent != NULL) {
-			if (parent->hasVariable(var)) {
-				parent->setVariable(var, value);
-			}
-			else {
-				variableMap[var] = value;
-			}
-		}
-		else {
-			variableMap[var] = value;
-		}
+	else if (afterCall) {
+		parent->setVariable(var, value);
 	}
+	else {
+		variableMap[var] = value;
+	}
+//	if (hasVariable(var)) {
+//		variableMap[var] = value;
+//	}
+//	else {
+//		if (parent != NULL) {
+//			if (parent->hasVariable(var)) {
+//				parent->setVariable(var, value);
+//			}
+//			else {
+//				variableMap[var] = value;
+//			}
+//		}
+//		else {
+//			variableMap[var] = value;
+//		}
+//	}
 }
 
 void SymbolTable::setVariableDirectly(std::string var, int value) {
@@ -85,6 +106,7 @@ SymbolTable * SymbolTable::getParent(void) {
 
 SymbolTable::SymbolTable() {
 	parent = NULL;
+	afterCall = 0;
 	// TODO Auto-generated constructor stub
 
 }

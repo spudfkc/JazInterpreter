@@ -12,6 +12,10 @@ int Context::getStackSize(void) {
 	return thestack.size();
 }
 
+JazExpression::SymbolTable * Context::getScope() {
+	return currentScope;
+}
+
 void Context::popScope(void) {
 	// TODO cleanup
 	currentScope = currentScope->getParent();
@@ -31,21 +35,23 @@ int Context::nextInstruction() {
 }
 
 int Context::getVariable(std::string var) {
-	if (inCall) {
-		return currentScope->resolveDirectly(var);
-	}
-	else {
-		return currentScope->resolve(var);
-	}
+	return currentScope->resolve(var);
+//	if (inCall) {
+//		return currentScope->resolveDirectly(var);
+//	}
+//	else {
+//		return currentScope->resolve(var);
+//	}
 }
 
 void Context::assignVariable(std::string var, int value) {
-	if (inCall) {
-		currentScope->setVariableDirectly(var, value);
-	}
-	else {
-		currentScope->setVariable(var, value);
-	}
+	currentScope->setVariable(var, value);
+//	if (inCall) {
+//		currentScope->setVariableDirectly(var, value);
+//	}
+//	else {
+//		currentScope->setVariable(var, value);
+//	}
 }
 
 int Context::getIndexForLabel(std::string label) {

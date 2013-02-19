@@ -13,6 +13,7 @@ namespace JazExpression {
 void Return::interpret(Context *context) {
 	context->instructions.pop();
 	context->inCall = 0;
+	context->getScope()->afterCall = 1;
 }
 
 Return::Return(std::string args) : Expression(args) {

@@ -26,6 +26,7 @@ public:
 	int getStackSize(void);
 	std::stack<int> instructions;
 
+	JazExpression::SymbolTable * getScope(void);
 	void popScope(void);
 	void newScope(JazExpression::SymbolTable *);
 

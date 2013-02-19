@@ -14,6 +14,7 @@ void Call::interpret(Context *context) {
 	int index = context->getIndexForLabel(arguments);
 	context->instructions.push(index);
 	context->inCall = 1;
+	context->getScope()->afterCall = -1;
 }
 
 Call::Call(std::string args) : Expression(args) {
