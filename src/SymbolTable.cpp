@@ -10,46 +10,69 @@
 
 namespace JazExpression {
 
+int SymbolTable::resolveDirectly(std::string var) {
+	int result;
+	std::map<std::string, int>::const_iterator iter = variableMap.find(var);
+	if (iter == variableMap.end()) {
+		result = 0;
+	}
+	else {
+		result = variableMap[var];
+	}
+	return result;
+}
+
 int SymbolTable::resolve(std::string var) {
 	int result;
 	std::map<std::string, int>::const_iterator iter = variableMap.find(var);
 	if (iter == variableMap.end()) {
-//		std::cout << "Variable " << var << " Not found in this scope" << std::endl;
-		result = parent->resolve(var);
+		if (parent == NULL) {
+			result = 0;
+		}
+		else {
+			result = parent->resolve(var);
+		}
 	}
 	else {
-//		std::cout << "Variable " << var << " found with value " << iter->second << std::endl;
 		result = iter->second;
 	}
 	return result;
 }
 
 void SymbolTable::setVariable(std::string var, int value) {
-	SymbolTable *found = NULL;
-	if (parent != NULL) {
-		found = parent->hasVariable(var);
-	}
-	if (found != NULL) {
-		found->setVariable(var, value);
+	if (hasVariable(var)) {
+		variableMap[var] = value;
 	}
 	else {
-		variableMap[var] = value;
+		if (parent != NULL) {
+			if (parent->hasVariable(var)) {
+				parent->setVariable(var, value);
+			}
+			else {
+				variableMap[var] = value;
+			}
+		}
+		else {
+			variableMap[var] = value;
+		}
 	}
 }
 
-SymbolTable * SymbolTable::hasVariable(std::string var) {
+void SymbolTable::setVariableDirectly(std::string var, int value) {
+	variableMap[var] = value;
+}
+
+bool SymbolTable::hasVariable(std::string var) {
+	// TODO - clean this up/optimize
+	bool result = false;
 	std::map<std::string, int>::const_iterator iter = variableMap.find(var);
 	if (iter == variableMap.end()) {
-		if (parent != NULL) {
-			return parent->hasVariable(var);
-		}
-		else {
-			return NULL;
-		}
+		result = false;
 	}
 	else {
-		return this;
+		result = true;;
 	}
+	return result;
 }
 
 void SymbolTable::setParent(SymbolTable *newParent) {

@@ -14,7 +14,6 @@ void Assign::interpret(Context *context) {
 	std::string variable = context->pop();
 	context->assignVariable(variable, value);
 	context->push(variable);
-//	std::cout << "ASSIGNED " << variable << " = " << value << std::endl;
 }
 
 Assign::Assign(std::string args) : Expression(args) {

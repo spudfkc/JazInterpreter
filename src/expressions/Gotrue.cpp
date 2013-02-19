@@ -11,9 +11,36 @@
 namespace JazExpression {
 
 void Gotrue::interpret(Context *context) {
-	// TODO
-	std::cout << "TODO: gotrue" << std::endl;
-	
+	bool result = false;
+
+	std::string s;
+
+	// TODO - clean this up - it's awful
+	if (context->getStackSize() > 0) {
+		s = context->pop();
+
+		if (s.empty()) {
+			result = false;
+		}
+		else if (stringToInt(s) == 0) {
+			result = false;
+		}
+//		else if (context->getVariable(s) == 0) {
+//			result = false;
+//		}
+		else {
+			result = true;
+		}
+	}
+	else {
+		result = false;
+	}
+
+	if (result) {
+		context->instructions.pop();
+		int index = context->getIndexForLabel(arguments);
+		context->instructions.push(index);
+	}
 }
 
 Gotrue::Gotrue(std::string args) : Expression(args) {

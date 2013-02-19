@@ -11,7 +11,6 @@ namespace JazExpression {
 
 void Pop::interpret(Context *context) {
 	context->pop();
-	
 }
 
 Pop::Pop(std::string args) : Expression(args) {
