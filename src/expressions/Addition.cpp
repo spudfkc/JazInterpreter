@@ -9,23 +9,16 @@
 
 namespace JazExpression {
 
-void Addition::interpret(Context *context)
-{
-
-	// get the top two values from context...
+void Addition::interpret(Context *context) {
 	std::string value1 = context->pop();
 	std::string value2 = context->pop();
 
-	// add them together and return the push
 	int result = Expression::stringToInt(value2) + Expression::stringToInt(value1);
-
 	context->push(Expression::intToString(result));
-
 	
 }
 
 Addition::Addition(std::string args) : Expression(args) {
-
 	// TODO Auto-generated constructor stub
 
 }

@@ -11,8 +11,8 @@
 namespace JazExpression {
 
 void Call::interpret(Context *context) {
-
-	
+	int index = context->getIndexForLabel(arguments);
+	context->instructions.push(index);
 }
 
 Call::Call(std::string args) : Expression(args) {

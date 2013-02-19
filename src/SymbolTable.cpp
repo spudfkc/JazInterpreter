@@ -25,31 +25,35 @@ int SymbolTable::resolve(std::string var) {
 }
 
 void SymbolTable::setVariable(std::string var, int value) {
-	SymbolTable *found = NULL;
-	if (parent != NULL) {
-		found = parent->hasVariable(var);
-	}
-	if (found != NULL) {
-		found->setVariable(var, value);
+	if (hasVariable(var)) {
+		variableMap[var] = value;
 	}
 	else {
-		variableMap[var] = value;
+		if (parent != NULL) {
+			if (parent->hasVariable(var)) {
+				parent->setVariable(var, value);
+			}
+			else {
+				variableMap[var] = value;
+			}
+		}
+		else {
+			variableMap[var] = value;
+		}
 	}
 }
 
-SymbolTable * SymbolTable::hasVariable(std::string var) {
+bool SymbolTable::hasVariable(std::string var) {
+	// TODO - clean this up/optimize
+	bool result = false;
 	std::map<std::string, int>::const_iterator iter = variableMap.find(var);
 	if (iter == variableMap.end()) {
-		if (parent != NULL) {
-			return parent->hasVariable(var);
-		}
-		else {
-			return NULL;
-		}
+		result = false;
 	}
 	else {
-		return this;
+		result = true;;
 	}
+	return result;
 }
 
 void SymbolTable::setParent(SymbolTable *newParent) {
