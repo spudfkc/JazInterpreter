@@ -11,6 +11,7 @@
 #include <fstream>
 #include <iostream>
 #include <cstring>
+#include <algorithm>
 #include "ExpressionFactory.h"
 
 void Parser::trim(std::string& str) {
@@ -18,6 +19,9 @@ void Parser::trim(std::string& str) {
 	std::string::size_type end = str.find_last_not_of(' ');
 	str = str.substr(start == std::string::npos ? 0 : start,
 		end == std::string::npos ? str.length() - 1 : end - start + 1);
+	str.erase(remove(str.begin(), str.end(), '\t'), str.end());
+	str.erase(remove(str.begin(), str.end(), '\n'), str.end());
+	str.erase(remove(str.begin(), str.end(), '\r'), str.end());
 }
 
 std::vector<Expression*> Parser::parse(std::string inputFilePath) {

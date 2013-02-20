@@ -20,7 +20,7 @@ private:
 	std::stack<std::string,std::vector<std::string> > thestack;
 	JazExpression::SymbolTable *currentScope;
 public:
-	int inCall;
+//	int inCall;
 	int nextInstruction(void);
 
 	int getStackSize(void);

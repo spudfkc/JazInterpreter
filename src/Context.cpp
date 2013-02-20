@@ -17,7 +17,6 @@ JazExpression::SymbolTable * Context::getScope() {
 }
 
 void Context::popScope(void) {
-	// TODO cleanup
 	currentScope = currentScope->getParent();
 }
 
@@ -36,22 +35,10 @@ int Context::nextInstruction() {
 
 int Context::getVariable(std::string var) {
 	return currentScope->resolve(var);
-//	if (inCall) {
-//		return currentScope->resolveDirectly(var);
-//	}
-//	else {
-//		return currentScope->resolve(var);
-//	}
 }
 
 void Context::assignVariable(std::string var, int value) {
 	currentScope->setVariable(var, value);
-//	if (inCall) {
-//		currentScope->setVariableDirectly(var, value);
-//	}
-//	else {
-//		currentScope->setVariable(var, value);
-//	}
 }
 
 int Context::getIndexForLabel(std::string label) {
@@ -90,7 +77,6 @@ Context::Context() {
 	currentScope = new JazExpression::SymbolTable();
 	instructions.push(-1); // This should indicate the end of intructions
 	instructions.push(0);  // start at spot 0
-	inCall = 0;
 }
 
 Context::~Context() {

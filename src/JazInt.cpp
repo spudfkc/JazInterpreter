@@ -25,16 +25,26 @@
 #include "Parser.h"
 #include "Context.h"
 #include "SymbolTable.h"
+#include <cstdlib>
 
 using namespace std;
 
-int main() {
+int main(int argc, char * argv[]) {
+
+	string fp;
+	if (argc == 2) {
+		fp = argv[1];
+	}
+	else {
+		cout << "No input file specified." << endl;
+		exit(1);
+	}
 
 	// TODO
 	// * input arguments
 	// * tab parsing
+	// * memory cleanup
 
-	string fp = "/home/ncc/Downloads/recFact2.jaz";
 
 	vector<Expression*> expressionList;    // Holds expressions
 	Context *context = new Context();      // Holds stack and labels (possibly symbol table?)
@@ -61,8 +71,6 @@ int main() {
 		expression->interpret(context);
 	}
 	cout << "======= End interpret" << endl;
-
-	// TODO memory clean-up
 
 	return 0;
 }

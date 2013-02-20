@@ -10,77 +10,29 @@
 
 namespace JazExpression {
 
-int SymbolTable::resolveDirectly(std::string var) {
-	int result;
-	std::map<std::string, int>::const_iterator iter = variableMap.find(var);
-	if (iter == variableMap.end()) {
-		result = 0;
-	}
-	else {
-		result = variableMap[var];
-	}
-	return result;
-}
-
 int SymbolTable::resolve(std::string var) {
-
 	if (afterCall == -1) {
-		return variableMap[var];
+		return variableMap[var];      // we are in a function, we only know of this scope
 	}
 	else if (afterCall) {
-		return variableMap[var];
+		return variableMap[var];      // we are returning from a function
 	}
 	else {
-		return parent->resolve(var);
+		return parent->resolve(var);  // we are passing to a function
 	}
-//
-//	int result;
-//	std::map<std::string, int>::const_iterator iter = variableMap.find(var);
-//	if (iter == variableMap.end()) {
-//		if (parent == NULL) {
-//			result = 0;
-//		}
-//		else {
-//			result = parent->resolve(var);
-//		}
-//	}
-//	else {
-//		result = iter->second;
-//	}
-//	return result;
 }
 
 void SymbolTable::setVariable(std::string var, int value) {
 
 	if (afterCall == -1) {
-		variableMap[var] = value;
+		variableMap[var] = value;        // in function
 	}
 	else if (afterCall) {
-		parent->setVariable(var, value);
+		parent->setVariable(var, value); // returning from function
 	}
 	else {
-		variableMap[var] = value;
+		variableMap[var] = value;        // passing to function
 	}
-//	if (hasVariable(var)) {
-//		variableMap[var] = value;
-//	}
-//	else {
-//		if (parent != NULL) {
-//			if (parent->hasVariable(var)) {
-//				parent->setVariable(var, value);
-//			}
-//			else {
-//				variableMap[var] = value;
-//			}
-//		}
-//		else {
-//			variableMap[var] = value;
-//		}
-//	}
-}
-
-void SymbolTable::setVariableDirectly(std::string var, int value) {
-	variableMap[var] = value;
 }
 
 bool SymbolTable::hasVariable(std::string var) {
@@ -107,12 +59,11 @@ SymbolTable * SymbolTable::getParent(void) {
 SymbolTable::SymbolTable() {
 	parent = NULL;
 	afterCall = 0;
-	// TODO Auto-generated constructor stub
-
 }
 
 SymbolTable::~SymbolTable() {
-	// TODO Auto-generated destructor stub
+	parent = NULL;
+	afterCall = 0;
 }
 
 } /* namespace JazExpression */

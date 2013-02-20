@@ -22,8 +22,6 @@ public:
 	SymbolTable * getParent(void);
 	void setParent(SymbolTable*);
 	void setVariable(std::string, int);
-	void setVariableDirectly(std::string, int);
-	int resolveDirectly(std::string);
 	int resolve(std::string);
 	SymbolTable();
 	virtual ~SymbolTable();
