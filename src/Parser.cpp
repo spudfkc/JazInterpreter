@@ -15,8 +15,13 @@
 #include "ExpressionFactory.h"
 
 void Parser::trim(std::string& str) {
+	std::string::size_type start2 = str.find_first_not_of("\t");
+	std::string::size_type end2   = str.find_last_not_of("\t");
+	str = str.substr(start2 == std::string::npos ? 0 : start2,
+		end2 == std::string::npos ? str.length() - 1 : end2 - start2 + 1);
+
 	std::string::size_type start = str.find_first_not_of(' ');
-	std::string::size_type end = str.find_last_not_of(' ');
+	std::string::size_type end   = str.find_last_not_of(' ');
 	str = str.substr(start == std::string::npos ? 0 : start,
 		end == std::string::npos ? str.length() - 1 : end - start + 1);
 	str.erase(remove(str.begin(), str.end(), '\t'), str.end());
@@ -30,7 +35,6 @@ std::vector<Expression*> Parser::parse(std::string inputFilePath) {
 	char *inputFileCharArray = new char[inputFilePath.size() + 1];
 	inputFileCharArray[inputFilePath.size()] = 0;
 	std::memcpy(inputFileCharArray, inputFilePath.c_str(), inputFilePath.size());
-
 
 	std::ifstream input;
 	input.open(inputFileCharArray);
@@ -69,7 +73,7 @@ std::vector<Expression*> Parser::parse(std::string inputFilePath) {
 			std::map<std::string, exp_method_t>::const_iterator iter = createMap.find(expString);
 			if (iter == createMap.end()) {
 				std::cout << "Bad expression found on line: " << i << std::endl;
-				std::cout << "\t" << argString << std::endl;
+				std::cout << "\t" << expString << std::endl;
 				isValid = false;
 			}
 			else {

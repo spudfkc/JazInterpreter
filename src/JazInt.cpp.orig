@@ -41,8 +41,14 @@ int main(int argc, char * argv[]) {
 	}
 
 	// TODO
+	// * input arguments
+	// * tab parsing
 	// * memory cleanup
 
+<<<<<<< HEAD
+=======
+	string fp = "C:/Users/Andrew/Desktop/recFact.jaz";
+>>>>>>> e3b4686b610700e8101df637f3d8883cb9146003
 
 	vector<Expression*> expressionList;    // Holds expressions
 	Context *context = new Context();      // Holds stack and labels (possibly symbol table?)
