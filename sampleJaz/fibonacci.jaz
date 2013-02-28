@@ -55,7 +55,7 @@ begin
 	:=
 	lvalue b
 	rvalue a
-	push 2
+	push 1
 	-
 	:=
 	call fibo
