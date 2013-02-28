@@ -12,13 +12,18 @@ namespace JazExpression {
 
 int SymbolTable::resolve(std::string var) {
 	if (afterCall == -1) {
-		return variableMap[var];      // we are in a function, we only know of this scope
+		return variableMap[var];          // we are in a function, we only know of this scope
 	}
 	else if (afterCall) {
-		return variableMap[var];      // we are returning from a function
+		return variableMap[var];          // we are returning from a function
 	}
 	else {
-		return parent->resolve(var);  // we are passing to a function
+		if (hasVariable(var)) {
+			return variableMap[var];
+		}
+		else {
+			return parent->resolve(var);  // we are passing to a function
+		}
 	}
 }
 
